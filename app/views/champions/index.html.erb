@@ -1,0 +1,35 @@
+<div class="row">
+  <ul class="accordion" data-accordion data-allow-all-closed="true">
+
+    <% @champions.each do |champ| %>
+      <li class="accordion-item" id="<%= champ.id %>" href="#<%= champ.id %>" data-accordion-item>
+        <a href="#" onclick="document.body.style.cssText+=
+        ';background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= champ.key %>_0.jpg);transition: background 0.5s linear;-webkit-transition: background 1.0s linear;';" class="accordion-title"><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= champ.img %>">&nbsp;&nbsp;<%= champ.name %></a>
+        <div id="accordion-content" class="accordion-content" data-tab-content>
+
+          <div class="tabs-content small-4 large-6 columns" data-tabs-content="example-tabs">
+
+            <ul class="tabs" data-tabs id="example-tabs">
+              <li class="tabs-title is-active"><a href="#panel<%= champ.id %>" aria-selected="true">Lore</a></li>
+              <li class="tabs-title"><a href="#panel<%= champ.id %>b">Tab 2</a></li>
+            </ul>
+
+            <div class="tabs-panel is-active" id="panel<%= champ.id %>">
+              <p><%= raw(champ.lore) %></p>
+            </div>
+
+            <div class="tabs-panel" id="panel<%= champ.id %>b">
+              <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+            </div>
+          </div>
+
+          <div class="accordion-content-right">
+            <h3><%= champ.name %> recent topics</h3>
+          </div>
+
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+</div>

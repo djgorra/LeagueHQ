@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='//fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+  </head>
+
+  <body>
+      <div class="top-bar" style="width:100%">
+        <div class="top-bar-title">
+          <a href="/">LeagueHQ</a>
+        </div>
+        <div class="top-bar-right">
+
+          <% if user_signed_in? %>
+
+
+          <% else %>
+          <ul class="top-bar-right-items">
+            <li><ul class="dropdown menu" data-dropdown-menu>
+              <li>
+                <a href="#">Login</a>
+                <ul class="menu">
+                  <li><%= render :partial => "devise/sessions/form" %></li>
+                </ul>
+              </li>
+            </ul></li>
+
+            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+          <% end %>
+
+        </div>
+
+        <div class="top-bar-left">
+          <form id="live-search" action="" class="styled">
+              <fieldset>
+                  <input type="text" class="text-input" id="filter" value="" placeholder="Search Champions"/>
+              </fieldset>
+          </form>
+        </div>
+
+      </div>
+
+    <%= yield %>
+
+    <footer class="footer">
+      <div class="row full-width">
+        <p>[Working title] isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

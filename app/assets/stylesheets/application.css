@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+body {
+  background-image: url("lol2.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+  font-family: 'Amaranth';
+}
+
+.row {
+  margin-top: 5px;
+}
+
+.top-bar {
+  width: 100%;
+  opacity: 0.9;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.top-bar-right-items li {
+  list-style-type: none;
+  float: right;
+  display: inline-block;
+  text-align: center;
+}
+
+.accordion {
+ width: 60vw;
+ background: rgba(54, 54, 54, 0.5);
+}
+
+.accordion-item {
+  margin: 5px;
+}
+
+.accordion-title {
+  font-size: 25px;
+  color: white;
+}
+
+.champ-thumb {
+  border-radius: 100px;
+}
+
+#accordion-content {
+  opacity: 0.8;
+}
+
+#accordion-content p {
+  text-align: center;
+  max-height: 300px;
+  overflow-y: scroll;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: black;
+}
+.accordion-content-right {
+  height: 400px;
+}
+
+.tabs-content {
+  width: 20vw;
+}
+
+.footer p {
+  font-family: 'Amaranth';
+  font-size: 15px;
+  color: white;
+  max-width: 60vw;
+  margin-top: 300px;
+}
