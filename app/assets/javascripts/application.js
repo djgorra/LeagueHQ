@@ -34,8 +34,11 @@ $(document).ready(function(){
                 count++;
             }
         });
-        // Update the count
-        var numberItems = count;
-        $("#filter-count").text("Number of Comments = "+count);
     });
 });
+function backgroundChanger(champ) {
+  if (exampleSwitch.checked) {
+    $("body").css({"background-image":`url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg)`, "transition":"background-image 0.5s"});
+  }
+}
+//"document.body.style.cssText+=';background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= champ.key %>_0.jpg);transition: background 0.5s linear;-webkit-transition: background 1.0s linear;';"
