@@ -14,7 +14,7 @@
 
   <body>
 
-      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="large">
         <button class="menu-icon" type="button" data-toggle="example-menu"></button>
         <div class="title-bar-title"><a href="/">LeagueHQ</a></div>
       </div>
@@ -22,6 +22,23 @@
       <div class="top-bar" id="example-menu">
         <div class="top-bar-title">
           <a class="hide-for-small-only" href="/">LeagueHQ</a>
+        </div>
+
+
+        <div class="top-bar-left">
+          <form id="live-search" action="" class="small-4 medium-8 large-12">
+              <fieldset>
+                  <input type="text" class="text-input" id="filter" value="" placeholder="Search Champions"/>
+              </fieldset>
+          </form>
+        </div>
+
+        <div class="top-bar-switch" title="Turn off live themes(For slow connections)">
+          <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch" checked>
+          <label class="switch-paddle" for="exampleSwitch">
+            <span class="switch-active" aria-hidden="true">On</span>
+            <span class="switch-inactive" aria-hidden="true">Off</span>
+          </label>
         </div>
 
         <div class="top-bar-right">
@@ -32,11 +49,11 @@
               <ul class="menu">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-              </ul>
-            </li>
-          </ul>
+                </ul>
+              </li>
+            </ul>
 
-          <% else %>
+            <% else %>
             <ul class="dropdown menu" data-dropdown-menu>
               <li>
                 <a href="#">Login</a>
@@ -48,25 +65,8 @@
                 <%= link_to "Sign up", new_user_registration_path %>
               </li>
             </ul>
-          <% end %>
-        </div>
-
-        <div class="top-bar-left">
-
-              <form id="live-search" action="" class="small-4 medium-8 large-12">
-                  <fieldset>
-                      <input type="text" class="text-input" id="filter" value="" placeholder="Search Champions"/>
-                  </fieldset>
-              </form>
-
-        </div>
-
-        <div class="top-bar-switch" title="Turn off live themes(For slow connections)">
-          <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch" checked>
-          <label class="switch-paddle" for="exampleSwitch">
-            <span class="show-for-sr">Download Kittens</span>
-          </label>
-        </div>
+            <% end %>
+          </div>
 
       </div>
 
