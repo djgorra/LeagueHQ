@@ -1,0 +1,13 @@
+<div class="show-page">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li><a href="/champions/<%=@champion.id%>"><%=@champion.name%></a></li>
+      <li>
+        <span class="show-for-sr">Current: </span> <%= @topic.title %>
+      </li>
+    </ul>
+  </nav>
+  <h1><%= @topic.title %></h1>
+  <h4><%= @topic.content %></h4>
+</div>
