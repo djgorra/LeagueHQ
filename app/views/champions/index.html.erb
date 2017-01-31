@@ -23,8 +23,13 @@
             </div>
           </div>
 
-          <div class="accordion-content-right">
+          <div class="accordion-content-right small-6 medium-6 large-6 columns">
             <h3><%= champ.name %> recent topics</h3>
+            <ul>
+            <% champ.topics[0..9].each do |topic| %>
+              <li><a href="/champions/<%= champ.id %>/topics/<%= topic.id %>"><%= topic.title %></a></li>
+            <% end %>
+            </ul>
           </div>
 
         </div>
