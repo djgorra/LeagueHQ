@@ -10,16 +10,24 @@
   </nav>
 
   <div class="topic-head small-12 medium-8 large-6">
+    <small><%= link_to @topic.user.email, user_path(@topic.user) %></small>
     <h1><u><%= @topic.title %></u></h1>
     <h4><%= @topic.content %></h4>
   </div>
   <div class="reply-form small-12 medium-8 large-6">
+    <% if user_signed_in? %>
     <%= render :partial => 'replies/form' %>
+    <% end %>
   </div>
   <% @topic.replies.each do |reply| %>
   <div class="reply small-12 medium-8 large-6">
     <small><a href="/users/<%= reply.user.id %>"><%= reply.user.email %></a></small>
     <p> <%= reply.content %> <p>
+      <% if user_signed_in? %>
+        <% if current_user.id == reply.user.id %>
+          <%= link_to "Delete Reply", champion_topic_reply_path(@topic.champion, @topic, reply), method: :delete, data: { confirm: 'Are you sure?' }  %>
+        <% end %>
+      <% end %>
   </div>
   <% end %>
 </div>

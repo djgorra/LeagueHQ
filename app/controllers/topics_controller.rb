@@ -26,6 +26,16 @@ class TopicsController < ApplicationController
     end
   end
 
+  def destroy
+    @topic = Topic.find(params[:id])
+    @replies = @topic.replies
+    @champion = @topic.champion
+    @topic.destroy
+    @replies.destroy_all
+    flash[:notice] = "Topic Deleted!"
+    redirect_to champion_path(@champion)
+  end
+
   private
   def topic_params
     params.require(:topic).permit(:title, :content, :user_id, :champion_id)

@@ -37,6 +37,6 @@ $(document).ready(function(){
 //background changer
 function backgroundChanger(champ) {
   if (exampleSwitch.checked) {
-    $("body").css({"background-image":`url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg)`, "transition":"background-image 0.5s"});
+    $("body").css({"background-image":`url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg)`, "transition":"background-image 1s"});
   }
 }

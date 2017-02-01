@@ -127,11 +127,7 @@ input[type="submit"] {
   margin-left: 20px;
 }
 
-.title {
-}
-
 .content {
-  max-width: 400px;
   height: 200px;
   line-height: 28px;
 }
@@ -170,4 +166,8 @@ input[type="submit"] {
   opacity: 0.8;
   border-style: solid;
   min-height: 50px;
+}
+
+.topics a {
+  color: white;
 }
