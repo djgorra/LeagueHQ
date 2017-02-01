@@ -29,6 +29,7 @@
             <% champ.topics[0..9].each do |topic| %>
               <li><a href="/champions/<%= champ.id %>/topics/<%= topic.id %>"><%= topic.title %></a></li>
             <% end %>
+              <strong><li><a href="/champions/<%= champ.id %>/">See All</a></li></strong>
             </ul>
           </div>
 

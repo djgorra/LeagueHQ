@@ -8,6 +8,18 @@
       </li>
     </ul>
   </nav>
-  <h1><%= @topic.title %></h1>
-  <h4><%= @topic.content %></h4>
+
+  <div class="topic-head small-12 medium-8 large-6">
+    <h1><u><%= @topic.title %></u></h1>
+    <h4><%= @topic.content %></h4>
+  </div>
+  <div class="reply-form small-12 medium-8 large-6">
+    <%= render :partial => 'replies/form' %>
+  </div>
+  <% @topic.replies.each do |reply| %>
+  <div class="reply small-12 medium-8 large-6">
+    <small><a href="/users/<%= reply.user.id %>"><%= reply.user.email %></a></small>
+    <p> <%= reply.content %> <p>
+  </div>
+  <% end %>
 </div>

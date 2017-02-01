@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "champions#index"
   resources :champions , only: [:show] do
-    resources :topics 
+    resources :topics do
+      resources :replies
+    end
   end
   resources :users, only: [:show]
 end

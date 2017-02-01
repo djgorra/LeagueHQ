@@ -90,7 +90,6 @@ body {
   overflow-y: scroll;
   padding-left: 2px;
   padding-right: 2px;
-  color: black;
 }
 .accordion-content-right {
   height: 400px;
@@ -120,6 +119,55 @@ input[type="submit"] {
 }
 
 .show-page {
-  margin-left: 50px;
+  margin-left: 10px;
   color: white;
+}
+
+#new-topic {
+  margin-left: 20px;
+}
+
+.title {
+}
+
+.content {
+  max-width: 400px;
+  height: 200px;
+  line-height: 28px;
+}
+
+.topic-head {
+  border-style: solid;
+  background-color: black;
+  opacity: 0.8;
+  text-indent: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+}
+
+.reply-content {
+  height: 100px;
+}
+
+.reply {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+}
+.topic {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+  min-height: 50px;
 }
