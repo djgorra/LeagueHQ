@@ -8,13 +8,23 @@
     </ul>
   </nav>
 
-  <h1><strong>Topics for <%= @champion.name %></strong></h1>
+  <h1><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= @champion.img %>"><strong>Topics for <%= @champion.name %></strong></h1>
+  <ul class="accordion small-12 medium-8 large-6" id="new-topic" data-accordion data-allow-all-closed="true">
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">New Topic</a>
+      <div class="accordion-content" data-tab-content>
+        <%= render :partial => 'topics/form' %>
+      </div>
+    </li>
+  </ul>
 
-  <ul class="topics">
+  <ul class="topics small-12 medium-8 large-6">
     <% if @champion.topics.length > 0 %>
       <% @champion.topics.each do |topic| %>
+      <div class="topic">
         <li><a href="/champions/<%=@champion.id%>/topics/<%=topic.id%>"><%= topic.title %></a></li>
           <small>Submitted by <%= topic.user.email %></small>
+      </div>
       <% end %>
     <% end %>
   </ul>

@@ -60,7 +60,7 @@ $medium-gray: #cacaca;
 $dark-gray: #343033;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $white;
+$body-background: $dark-gray;
 $body-font-color: $white;
 $body-font-family: 'Amaranth', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
@@ -129,7 +129,7 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
-$header-small-font-color: $medium-gray;
+$header-small-font-color: $white;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
@@ -193,12 +193,12 @@ $input-error-font-weight: $global-weight-bold;
 // 7. Accordion
 // ------------
 
-$accordion-background: $white;
+$accordion-background: $body-background;
 $accordion-plusminus: false;
 $accordion-item-color: foreground($accordion-background, $primary-color);
-$accordion-item-background-hover: $light-gray;
+$accordion-item-background-hover: $body-background;
 $accordion-item-padding: 1.25rem 1rem;
-$accordion-content-background: $white;
+$accordion-content-background: $body-background;
 $accordion-content-border: 1px solid $light-gray;
 $accordion-content-color: foreground($accordion-background, $primary-color);
 $accordion-content-padding: 1rem;
@@ -510,13 +510,13 @@ $show-header-for-stacked: false;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
+$tab-background: $body-background;
 $tab-background-active: $light-gray;
 $tab-item-font-size: rem-calc(12);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;
-$tab-content-background: $white;
+$tab-content-background: $body-background;
 $tab-content-border: $light-gray;
 $tab-content-color: foreground($tab-background, $primary-color);
 $tab-content-padding: 1rem;
