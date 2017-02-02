@@ -18,6 +18,7 @@
     <% if user_signed_in? %>
     <%= render :partial => 'replies/form' %>
     <% end %>
+
   </div>
   <% @topic.replies.each do |reply| %>
   <div class="reply small-12 medium-8 large-6">

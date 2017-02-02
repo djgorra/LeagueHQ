@@ -21,6 +21,7 @@
   <ul class="topics small-12 medium-8 large-6">
     <% if @champion.topics.length > 0 %>
       <% @champion.topics.each do |topic| %>
+
       <a href="/champions/<%=@champion.id%>/topics/<%=topic.id%>">
       <div class="topic">
         <li><%= topic.title %></li>

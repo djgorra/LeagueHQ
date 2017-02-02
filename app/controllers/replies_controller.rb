@@ -16,6 +16,7 @@ class RepliesController < ApplicationController
     end
   end
 
+
   def destroy
     @reply = Reply.find(params[:id])
     @topic = params[:topic_id]
