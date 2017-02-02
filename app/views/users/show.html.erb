@@ -42,12 +42,6 @@
       <% end %>
     </div>
 
-      <% @user.replies.each do |reply| %>
-        <div class="reply">
-          <a href="/champions/<%=reply.topic.champion.id%>/topics/<%=reply.topic.id%>"><%= reply.topic.title %></a>
-          <p><%= reply.content %></p>
-        </div>
-      <% end %>
+
     </div>
   </div>
-</div>

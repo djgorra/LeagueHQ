@@ -25,11 +25,6 @@
       <div class="topic">
         <li><%= topic.title %></li>
           <small>Submitted by <%= topic.user.email %></small>
-          <% if user_signed_in? %>
-            <% if current_user.id == topic.user.id %>
-              <%= link_to "Delete Topic", champion_topic_path(@champion, topic), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          <% end %>
       </div>
       </a>
       <% end %>
