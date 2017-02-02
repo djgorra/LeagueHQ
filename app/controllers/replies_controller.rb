@@ -16,10 +16,6 @@ class RepliesController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7afbd1ac11a0b1d61977219158cfa7664dc640b6
   def destroy
     @reply = Reply.find(params[:id])
     @topic = params[:topic_id]

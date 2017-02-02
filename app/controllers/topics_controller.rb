@@ -11,7 +11,6 @@ class TopicsController < ApplicationController
 
   def show
     @champion = Champion.find(params[:champion_id])
-<<<<<<< HEAD
     @topic = Topic.find(params[:id])
     @replies = @topic.replies
   end
@@ -28,9 +27,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-=======
-
->>>>>>> 7afbd1ac11a0b1d61977219158cfa7664dc640b6
     @topic = Topic.find(params[:id])
     @replies = @topic.replies
     @champion = @topic.champion
