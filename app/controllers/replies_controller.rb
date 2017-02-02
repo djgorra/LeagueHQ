@@ -16,6 +16,13 @@ class RepliesController < ApplicationController
     end
   end
 
+  def update
+    @reply = Reply.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @champion = Champion.find(params[:champion_id])
+    @reply.update(reply_edit_params)
+    redirect_to champion_topic_path(@topic.champion.id, @topic.id)
+  end
 
   def destroy
     @reply = Reply.find(params[:id])
@@ -29,6 +36,10 @@ class RepliesController < ApplicationController
 
   def reply_params
     params.require(:reply).permit(:content, :user_id, :topic_id)
+  end
+
+  def reply_edit_params
+    params.require(:reply).permit(:content)
   end
 
 end

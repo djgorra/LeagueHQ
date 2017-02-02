@@ -26,6 +26,11 @@ body {
   list-style-type: none;
 }
 
+.menu {
+  z-index: 10;
+  background-color: black;
+}
+
 .row {
   margin-top: 5px;
 }
@@ -120,37 +125,7 @@ input[type="submit"] {
 
 .show-page {
   margin-left: 10px;
-
   color: white;
-}
-
-#new-topic {
-  margin-left: 20px;
-}
-
-.content {
-  height: 200px;
-  line-height: 28px;
-}
-
-.topic-head {
-  border-style: solid;
-  background-color: black;
-  opacity: 0.8;
-  text-indent: 10px;
-  margin-bottom: 10px;
-}
-
-.reply-form {
-  margin-top: 10px;
-  background-color: black;
-  text-indent: 10px;
-  opacity: 0.8;
-  border-style: solid;
-}
-
-.reply-content {
-  height: 100px;
 }
 
 .reply {
@@ -170,7 +145,6 @@ input[type="submit"] {
 }
 
 .topics a {
-
   color: white;
 }
 
@@ -179,12 +153,14 @@ input[type="submit"] {
 }
 
 .title {
+  max-width: 400px;
 }
 
 .content {
   max-width: 400px;
-  height: 200px;
+  height: 100px;
   line-height: 28px;
+  z-index: 9999;
 }
 
 .topic-head {
@@ -192,7 +168,11 @@ input[type="submit"] {
   background-color: black;
   opacity: 0.8;
   text-indent: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+}
+
+.reply {
+  z-index: -1;
 }
 
 .reply-form {
@@ -201,24 +181,14 @@ input[type="submit"] {
   text-indent: 10px;
   opacity: 0.8;
   border-style: solid;
+  z-index: -1;
 }
 
 .reply-content {
   height: 100px;
+  z-index: -1;
 }
-
-.reply {
-  margin-top: 10px;
-  background-color: black;
-  text-indent: 10px;
-  opacity: 0.8;
-  border-style: solid;
-}
-.topic {
-  margin-top: 10px;
-  background-color: black;
-  text-indent: 10px;
-  opacity: 0.8;
-  border-style: solid;
-  min-height: 50px;
+.dropdown-pane {
+  width: 600px;
+  z-index: 999999999;
 }

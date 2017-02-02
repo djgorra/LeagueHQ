@@ -10,15 +10,29 @@
   </nav>
 
   <div class="topic-head small-12 medium-8 large-6">
+    <% if user_signed_in? && current_user.id == @topic.user.id %>
+      <ul class=" dropdown menu" style="width: 100px;" data-dropdown-menu data-click-open="true" data-disable-hover="true">
+        <li>
+          <a href="#">Edit</a>
+          <ul class="menu"  style="width: 400px;">
+            <%= render :partial => 'topics/edit', :locals => {:topic => @topic} %>
+          </ul>
+        </li>
+        <li>
+          <%= link_to "Delete", champion_topic_path(@champion, @topic), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+      </ul>
+    <% end %>
     <small><%= link_to @topic.user.email, user_path(@topic.user) %></small>
     <h1><u><%= @topic.title %></u></h1>
     <h4><%= @topic.content %></h4>
   </div>
+
+
   <div class="reply-form small-12 medium-8 large-6">
     <% if user_signed_in? %>
     <%= render :partial => 'replies/form' %>
     <% end %>
-
   </div>
   <% @topic.replies.each do |reply| %>
   <div class="reply small-12 medium-8 large-6">
@@ -26,7 +40,16 @@
     <p> <%= reply.content %> <p>
       <% if user_signed_in? %>
         <% if current_user.id == reply.user.id %>
-          <%= link_to "Delete Reply", champion_topic_reply_path(@topic.champion, @topic, reply), method: :delete, data: { confirm: 'Are you sure?' }  %>
+
+          <div class="button-group">
+            <a class="button"><%= button_to "Delete", champion_topic_reply_path(@topic.champion, @topic, reply), method: :delete, data: { confirm: 'Are you sure?' }  %></a>
+            <a class="button"><input type="submit" value="Edit" data-toggle="edit_<%=reply.id%>"></a>
+              <div class="dropdown-pane top" id="edit_<%=reply.id%>" data-dropdown data-auto-focus="true">
+                <%= render :partial => 'replies/edit', :locals => {:reply => reply} %>
+              </div>
+
+          </div>
+
         <% end %>
       <% end %>
   </div>
