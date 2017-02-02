@@ -120,6 +120,7 @@ input[type="submit"] {
 
 .show-page {
   margin-left: 10px;
+<<<<<<< HEAD
   color: white;
 }
 
@@ -169,5 +170,107 @@ input[type="submit"] {
 }
 
 .topics a {
+=======
+
+>>>>>>> 7afbd1ac11a0b1d61977219158cfa7664dc640b6
   color: white;
+}
+
+#new-topic {
+  margin-left: 20px;
+}
+
+.content {
+  height: 200px;
+  line-height: 28px;
+}
+
+.topic-head {
+  border-style: solid;
+  background-color: black;
+  opacity: 0.8;
+  text-indent: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+}
+
+.reply-content {
+  height: 100px;
+}
+
+.reply {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+}
+.topic {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+  min-height: 50px;
+}
+
+.topics a {
+
+  color: white;
+}
+
+#new-topic {
+  margin-left: 20px;
+}
+
+.title {
+}
+
+.content {
+  max-width: 400px;
+  height: 200px;
+  line-height: 28px;
+}
+
+.topic-head {
+  border-style: solid;
+  background-color: black;
+  opacity: 0.8;
+  text-indent: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+}
+
+.reply-content {
+  height: 100px;
+}
+
+.reply {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+}
+.topic {
+  margin-top: 10px;
+  background-color: black;
+  text-indent: 10px;
+  opacity: 0.8;
+  border-style: solid;
+  min-height: 50px;
 }

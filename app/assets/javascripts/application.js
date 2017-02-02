@@ -37,6 +37,14 @@ $(document).ready(function(){
 //background changer
 function backgroundChanger(champ) {
   if (exampleSwitch.checked) {
+<<<<<<< HEAD
     $("body").css({"background-image":`url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg)`, "transition":"background-image 1s"});
+=======
+    var img = new Image();
+    img.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg`;
+    img.onload = function () {
+    $("body").css({"background-image":`url(${img.src})`, "transition":"background-image 0.5s"});
+    };
+>>>>>>> 7afbd1ac11a0b1d61977219158cfa7664dc640b6
   }
 }
