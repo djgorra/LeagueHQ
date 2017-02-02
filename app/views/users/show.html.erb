@@ -1,4 +1,13 @@
 <div class="show-page">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li>
+        <span class="show-for-sr">Current: </span> <%= @user.email %>
+      </li>
+    </ul>
+  </nav>
+
   <h1><%= @user.email %></h1>
 
   <div class="tabs-content small-12 medium-8 large-6" data-tabs-content="example-tabs">
@@ -9,14 +18,31 @@
     </ul>
 
     <div class="tabs-panel is-active" id="topics-panel">
-      <% @user.topics.each do |topic| %>
-        <div class="topic">
-          <a href="/champions/<%=topic.champion_id%>/topics/<%=topic.id%>"><%= topic.title %><a>
-        </div>
+      <% if @user.topics.length > 0 %>
+        <% @user.topics.each do |topic| %>
+          <div class="topic">
+            <a href="/champions/<%=topic.champion_id%>/topics/<%=topic.id%>"><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= topic.champion.img %>"><%= topic.title %><a>
+          </div>
+        <% end %>
+      <% else %>
+        <p>Nothing to display!</p>
       <% end %>
     </div>
 
     <div class="tabs-panel" id="comments-panel">
+      <% if @user.replies.length > 0 %>
+        <% @user.replies.each do |reply| %>
+          <div class="reply">
+            <a href="/champions/<%=reply.topic.champion.id%>/topics/<%=reply.topic.id%>"><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= reply.topic.champion.img %>"><%= reply.topic.title %></a>
+            <p><%= reply.content %></p>
+          </div>
+        <% end %>
+        <% else %>
+        <p>Nothing to display!</p>
+      <% end %>
+    </div>
+
+
       <% @user.replies.each do |reply| %>
         <div class="reply">
           <a href="/champions/<%=reply.topic.champion.id%>/topics/<%=reply.topic.id%>"><%= reply.topic.title %></a>
@@ -24,6 +50,5 @@
         </div>
       <% end %>
     </div>
-    
   </div>
 </div>

@@ -16,6 +16,15 @@ class RepliesController < ApplicationController
     end
   end
 
+
+  def destroy
+    @reply = Reply.find(params[:id])
+    @topic = params[:topic_id]
+    @champion = params[:champion_id]
+    @reply.destroy
+    redirect_to champion_topic_path(@champion, @topic)
+  end
+
   private
 
   def reply_params
