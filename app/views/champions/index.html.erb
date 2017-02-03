@@ -3,7 +3,7 @@
   <ul class="accordion small-12 medium-10 large-8 columns" data-accordion data-allow-all-closed="true">
 
     <% @champions.each do |champ| %>
-      <li class="accordion-item" id="<%= champ.id %>" href="#<%= champ.id %>" data-accordion-item>
+      <li class="accordion-item" id="<%= champ.key %>" href="#<%= champ.id %>" data-accordion-item>
         <a href="#" onClick="backgroundChanger('<%= champ.key %>')" class="accordion-title"><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= champ.img %>">&nbsp;&nbsp;<%= champ.name %></a>
         <div id="accordion-content" class="accordion-content" data-tab-content>
 

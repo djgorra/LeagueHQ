@@ -36,11 +36,15 @@ $(document).ready(function(){
 
 //background changer
 function backgroundChanger(champ) {
+
   if (exampleSwitch.checked) {
     var img = new Image();
     img.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg`;
     img.onload = function () {
     $("body").css({"background-image":`url(${img.src})`, "transition":"background-image 0.5s"});
     };
+    $('html, body').animate({
+      scrollTop: $(`${champ}`).offset().top
+  }, 2000);
   }
 }
