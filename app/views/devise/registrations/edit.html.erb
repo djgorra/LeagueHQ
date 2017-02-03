@@ -9,6 +9,11 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
 
+    <div class="field small-12 medium-8 large-4">
+      <%= f.label :riot_username %>
+      <%= f.text_field :riot_username %>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>

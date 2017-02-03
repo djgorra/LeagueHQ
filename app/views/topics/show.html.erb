@@ -46,7 +46,6 @@
 
       <% if user_signed_in? && current_user.id == reply.user.id %>
 
-
           <div class="button-group">
             <a class="button"><%= button_to "Delete", champion_topic_reply_path(@topic.champion, @topic, reply), method: :delete, data: { confirm: 'Are you sure?' }  %></a>
             <a class="button"><input type="submit" value="Edit" data-toggle="edit_<%=reply.id%>"></a>
