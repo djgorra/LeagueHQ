@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131162456) do
+ActiveRecord::Schema.define(version: 20170203153537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,18 +42,22 @@ ActiveRecord::Schema.define(version: 20170131162456) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.text    "content",  null: false
-    t.integer "user_id",  null: false
-    t.integer "topic_id", null: false
+    t.text     "content",    null: false
+    t.integer  "user_id",    null: false
+    t.integer  "topic_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["topic_id"], name: "index_replies_on_topic_id", using: :btree
     t.index ["user_id"], name: "index_replies_on_user_id", using: :btree
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string  "title",       null: false
-    t.text    "content",     null: false
-    t.integer "user_id",     null: false
-    t.integer "champion_id", null: false
+    t.string   "title",       null: false
+    t.text     "content",     null: false
+    t.integer  "user_id",     null: false
+    t.integer  "champion_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["champion_id"], name: "index_topics_on_champion_id", using: :btree
     t.index ["user_id"], name: "index_topics_on_user_id", using: :btree
   end

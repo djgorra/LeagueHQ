@@ -13,7 +13,12 @@
     <li class="accordion-item" data-accordion-item>
       <a href="#" class="accordion-title">New Topic</a>
       <div class="accordion-content" data-tab-content>
-        <%= render :partial => 'topics/form' %>
+        <% if user_signed_in? %>
+          <%= render :partial => 'topics/form' %>
+        <% else %>
+          <h3>Must be signed in!</h3>
+          <%= render :partial => 'devise/sessions/form' %>
+        <% end %>
       </div>
     </li>
   </ul>
