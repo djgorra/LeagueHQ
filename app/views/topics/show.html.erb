@@ -25,7 +25,6 @@
     <% end %>
 
     <small>Submitted at <%= @topic.created_at %> by <%= link_to @topic.user.email, user_path(@topic.user) %></small>
-
     <h1><u><%= @topic.title %></u></h1>
     <h4><%= @topic.content %></h4>
   </div>
