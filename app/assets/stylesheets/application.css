@@ -192,3 +192,14 @@ input[type="submit"] {
   width: 600px;
   z-index: 999999999;
 }
+
+.card-container {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+}
+
+.champ-loading-image {
+  height: 200px;
+  width: auto;
+}
