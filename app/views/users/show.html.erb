@@ -15,6 +15,7 @@
     <ul class="tabs" data-tabs id="example-tabs">
       <li class="tabs-title is-active"><a href="#topics-panel" aria-selected="true">Topics</a></li>
       <li class="tabs-title"><a href="#comments-panel">Comments</a></li>
+      <li class="tabs-title"><a href="#matches-panel">Matches</a></li>
     </ul>
 
     <div class="tabs-panel is-active" id="topics-panel">
@@ -39,6 +40,28 @@
         <% end %>
         <% else %>
         <p>Nothing to display!</p>
+      <% end %>
+    </div>
+
+    <div class="tabs-panel" id="matches-panel">
+      <% if @user.matches.exists? %>
+      <%= button_to "Update Matches", new_user_match_path(@user), method: :get %>
+        <% @user.matches.each do |match| %>
+          <a class="card-container" href="<%= match.user.id %>/matches/<%= match.id %>">
+            <div class="card">
+              <div class="card-divider">
+                <h4><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h4>
+              </div>
+              <img class="champ-loading-image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/<%=match.champion%>_0.jpg">
+              <div class="card-section">
+                <small><%= match.duration %></small><br>
+                <small><%= match.date %></small>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      <% else %>
+        <%= button_to "Get Matches", new_user_match_path(@user), method: :get %>
       <% end %>
     </div>
 
