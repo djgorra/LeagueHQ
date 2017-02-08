@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170206164812) do
     t.integer "riot_id",           null: false
     t.string  "icon_id",           null: false
     t.integer "champion_id",       null: false
+    t.string  "champion"
     t.string  "lane",              null: false
     t.integer "team",              null: false
     t.boolean "won",               null: false
