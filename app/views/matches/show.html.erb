@@ -1,1 +1,122 @@
-<p>hello!</p>
+<div class="show-page">
+  <div class="header small-12 medium-6 large-6">
+    <h1><%= @match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h1>
+    <h2><%= @match.date %></h2>
+    <h3><%= @match.duration %></h3>
+  </div>
+  <div class="row">
+    <div class="winners small-6 medium-6 large-6 columns">
+      <h4><strong>WON</strong></h4>
+      <% @match.players.where(won: true).order(:lane).each do |player| %>
+      <div class="player" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= player.champion %>_0.jpg); background-repeat: no-repeat; background-size: cover;">
+        <h5 class="player-header"><img height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%= player.icon_id %>.png"> <%= player.name %></h5>
+        <div class="player-section small-3 medium-3 large-3 columns">
+          <small><%= player.lane %></small><br>
+          <small><%= player.kills %> / <%= player.deaths %> / <%= player.assists %></small><br>
+          <small>Level <%= player.level %></small><br>
+          <small>Towers killed: <%= player.tower_kills %></small><br>
+          <% if player.first_blood %>
+            <small>First blood!</small><br>
+          <% end %>
+          <% if player.first_tower %>
+            <small>First tower!</small><br>
+          <% end %>
+        </div>
+
+        <div class="player-section small-6 medium-6 large-6 columns">
+          <small>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_0 %>.png">
+            <% end %>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_1 %>.png">
+            <% end %>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_2 %>.png">
+            <% end %>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_3 %>.png">
+            <% end %>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_4 %>.png">
+            <% end %>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_5 %>.png">
+            <% end %>
+            <% if player.item_0 > 0 %>
+            <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_6 %>.png">
+            <% end %>
+          </small><br>
+          <small>Gold earned: <%= player.gold_earned %></small><br>
+          <small>Minions killed: <%= player.minions_killed %></small><br>
+          <small>Wards placed: <%= player.wards_placed %></small><br>
+          <small>Largest multikill: <%= player.largest_multikill %></small>
+        </div>
+
+        <div class="player-section small-3 medium-3 large-3 columns">
+          <small>Damage dealt: <%= player.damage_dealt %></small><br>
+          <small>Damage taken: <%= player.damage_taken %></small><br>
+          <small>Healing done:<br> <%= player.healing_done %></small><br>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="losers small-6 medium-6 large-6 columns">
+      <h4><strong>LOST</strong></h4>
+      <% @match.players.where(won: false).order(:lane).each do |player| %>
+        <div class="player" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= player.champion %>_0.jpg); background-repeat: no-repeat; background-size: cover;">
+          <h5 class="player-header"><img height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%= player.icon_id %>.png"> <%= player.name %></h5>
+          <div class="player-section small-3 medium-3 large-3 columns">
+            <small><%= player.lane %></small><br>
+            <small><%= player.kills %> / <%= player.deaths %> / <%= player.assists %></small><br>
+            <small>Towers killed: <%= player.tower_kills %></small>
+            <% if player.first_blood %>
+              <small>First blood!</small><br>
+            <% end %>
+            <% if player.first_tower %>
+              <small>First tower!</small><br>
+            <% end %>
+
+          </div>
+
+          <div class="player-section small-6 medium-6 large-6 columns">
+            <small>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_0 %>.png">
+              <% end %>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_1 %>.png">
+              <% end %>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_2 %>.png">
+              <% end %>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_3 %>.png">
+              <% end %>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_4 %>.png">
+              <% end %>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_5 %>.png">
+              <% end %>
+              <% if player.item_0 > 0 %>
+              <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_6 %>.png">
+              <% end %>
+            </small><br>
+            <small>Gold earned: <%= player.gold_earned %></small><br>
+            <small>Minions killed: <%= player.minions_killed %></small><br>
+            <small>Wards placed: <%= player.wards_placed %></small><br>
+            <small>Largest multikill: <%= player.largest_multikill %></small>
+          </div>
+
+          <div class="player-section small-3 medium-3 large-3 columns">
+            <small>Damage dealt: <%= player.damage_dealt %></small><br>
+            <small>Damage taken: <%= player.damage_taken %></small><br>
+            <small>Healing done:<br> <%= player.healing_done %></small><br>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

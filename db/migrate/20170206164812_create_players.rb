@@ -5,6 +5,7 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.integer :riot_id, null: false
       t.string :icon_id, null: false
       t.integer :champion_id, null: false
+      t.string :champion
       t.string :lane, null: false
       t.integer :team, null: false
       t.boolean :won, null: false

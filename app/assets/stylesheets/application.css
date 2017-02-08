@@ -128,6 +128,32 @@ input[type="submit"] {
   color: white;
 }
 
+.header {
+  display: inline-block;
+  background-color: black;
+  opacity: 0.5;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.player-header {
+  background-color: black;
+  opacity: 0.75;
+}
+
+.losers {
+  background-color: rgba(228, 10, 10, 0.2);
+  border-radius: 10px;
+}
+
+.winners {
+  background-color: rgba(46, 222, 11, 0.2);
+  border-radius: 10px;
+}
+.winners h4 {
+  text-align: right;
+}
+
 .reply {
   margin-top: 10px;
   background-color: black;
@@ -197,9 +223,22 @@ input[type="submit"] {
   display: inline-block;
   width: 150px;
   text-align: center;
+  color: white;
+}
+
+.card-container:hover {
+  background-color: white;
 }
 
 .champ-loading-image {
   height: 200px;
   width: auto;
+}
+
+.player {
+  height: 200px;
+}
+
+.player-section {
+  text-align: center;
 }
