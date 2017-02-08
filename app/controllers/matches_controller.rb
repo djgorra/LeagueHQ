@@ -8,7 +8,7 @@ class MatchesController < ApplicationController
         match.destroy
       end
     end
-
+    
     url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=4&api_key=RGAPI-170add2c-df6d-4bb7-975c-5b970695a787"
     response = HTTParty.get(url)
 
@@ -25,13 +25,14 @@ class MatchesController < ApplicationController
         count = 0
 
         response2["participants"].each do |player|
-          champerino = Champion.find_by(riot_id: player["championId"])
 
+          champerino = Champion.find_by(riot_id: player["championId"])
           Player.create(name: response2["participantIdentities"][count]["player"]["summonerName"], riot_id: response2["participantIdentities"][count]["player"]["summonerId"], icon_id: response2["participantIdentities"][count]["player"]["profileIcon"], champion_id: player["championId"], lane: player["timeline"]["lane"],
           team: player["teamId"], won: player["stats"]["winner"], kills: player["stats"]["kills"], deaths: player["stats"]["deaths"], assists: player["stats"]["assists"], tower_kills: player["stats"]["towerKills"], level: player["stats"]["champLevel"],
           first_blood: player["stats"]["firstTowerKill"], first_tower: player["stats"]["firstTowerKill"], gold_earned: player["stats"]["goldEarned"], damage_dealt: player["stats"]["totalDamageDealtToChampions"], damage_taken: player["stats"]["totalDamageTaken"],
           healing_done: player["stats"]["totalHeal"], minions_killed: player["stats"]["minionsKilled"], largest_multikill: player["stats"]["largestMultiKill"], wards_placed: player["stats"]["wardsPlaced"], item_0: player["stats"]["item0"], item_1:  player["stats"]["item1"],
           item_2: player["stats"]["item2"], item_3: player["stats"]["item3"], item_4: player["stats"]["item4"], item_5: player["stats"]["item5"], item_6: player["stats"]["item6"], match_id: thismatch.id, user_id: params[:user_id], champion: champerino.key )
+          item_2: player["stats"]["item2"], item_3: player["stats"]["item3"], item_4: player["stats"]["item4"], item_5: player["stats"]["item5"], item_6: player["stats"]["item6"], match_id: thismatch.id, user_id: params[:user_id] )
           count += 1
         end
 
