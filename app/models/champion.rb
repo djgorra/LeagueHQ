@@ -5,4 +5,6 @@ class Champion < ApplicationRecord
   validates :lore, presence: true
 
   has_many :topics
+  has_many :skins
+  has_many :abilities
 end

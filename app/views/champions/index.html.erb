@@ -4,14 +4,16 @@
 
     <% @champions.each do |champ| %>
       <li class="accordion-item" id="<%= champ.key %>" href="#<%= champ.id %>" data-accordion-item>
-        <a href="#" onClick="backgroundChanger('<%= champ.key %>')" class="accordion-title"><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= champ.img %>">&nbsp;&nbsp;<%= champ.name %></a>
+        <a href="#" onClick="backgroundChanger('<%= champ.key %>', 0)" class="accordion-title"><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= champ.img %>">&nbsp;&nbsp;<%= champ.name %></a>
         <div id="accordion-content" class="accordion-content" data-tab-content>
 
           <div class="tabs-content small-6 medium-6 large-6 columns" data-tabs-content="example-tabs">
 
             <ul class="tabs" data-tabs id="example-tabs">
               <li class="tabs-title is-active"><a href="#panel<%= champ.id %>" aria-selected="true">Lore</a></li>
-              <li class="tabs-title"><a href="#panel<%= champ.id %>b">Tab 2</a></li>
+              <li class="tabs-title"><a href="#panel<%= champ.id %>b">Abilities</a></li>
+              <li class="tabs-title"><a href="#panel<%= champ.id %>c">Skins</a></li>
+              <li class="tabs-title"><a href="#panel<%= champ.id %>d">Info</a></li>
             </ul>
 
             <div class="tabs-panel is-active" id="panel<%= champ.id %>">
@@ -19,13 +21,38 @@
             </div>
 
             <div class="tabs-panel" id="panel<%= champ.id %>b">
-              <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+              <ul class="skin-list">
+                <% champ.abilities.reverse.each do |ability| %>
+                <li><img src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/<%=ability.image%>"> <%= ability.name %></li>
+                <small><%= ability.description %></small>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="tabs-panel" id="panel<%= champ.id %>c">
+              <% champ.skins.each do |skin| %>
+                <div class="skin">
+                  <small><img onClick="backgroundChanger('<%=champ.key%>', '<%=skin.num%>')" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%=champ.key%>_<%=skin.num%>.jpg"></small>
+                  <p class="hover-text"><%= skin.name %></p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="tabs-panel" id="panel<%= champ.id %>d">
+              <small>Attack</small><br>
+              <progress class="secondary" max="10" value="<%=champ.attack%>"></progress><br>
+              <small>Defense</small><br>
+              <progress class="success" max="10" value="<%=champ.defense%>"></progress><br>
+              <small>Magic</small><br>
+              <progress class="warning" max="10" value="<%=champ.magic%>"></progress><br>
+              <small>Difficulty</small><br>
+              <progress class="alert" max="10" value="<%=champ.difficulty%>"></progress><br>
             </div>
           </div>
 
           <div class="accordion-content-right small-6 medium-6 large-6 columns">
             <h3><%= champ.name %> recent topics</h3>
-            <ul>
+            <ul class="topic-list">
             <% champ.topics[0..9].each do |topic| %>
               <li><a href="/champions/<%= champ.id %>/topics/<%= topic.id %>"><%= topic.title %></a></li>
             <% end %>

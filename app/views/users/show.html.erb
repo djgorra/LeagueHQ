@@ -53,9 +53,13 @@
               <div class="card-divider">
                 <h4><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h4>
               </div>
-              <img class="champ-loading-image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/<%=match.champion%>_0.jpg">
+              <img class="champ-loading-image" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/<%=match.champion%>.png">
               <div class="card-section">
-                <small><%= match.duration %></small><br>
+                <% if match.players.where(riot_id: @user.riot_id).where(won: true).exists? %>
+                <small>VICTORY</small><br>
+                <% else %>
+                <small>DEFEAT</small><br>
+                <% end %>
                 <small><%= match.date %></small>
               </div>
             </div>

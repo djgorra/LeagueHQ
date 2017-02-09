@@ -91,11 +91,26 @@ body {
 
 #accordion-content p {
   text-align: center;
-  max-height: 300px;
-  overflow-y: scroll;
   padding-left: 2px;
   padding-right: 2px;
 }
+
+.tabs-panel {
+  overflow-y: scroll;
+  max-height: 300px;
+  height: 300px;
+}
+
+.skin .hover-text {
+  position:relative;
+  bottom:30px;
+  left:0px;
+  visibility:hidden;
+}
+.skin:hover .hover-text {
+  visibility:visible;
+}
+
 .accordion-content-right {
   height: 400px;
 }
@@ -136,19 +151,28 @@ input[type="submit"] {
   border-radius: 10px;
 }
 
-.player-header {
-  background-color: black;
-  opacity: 0.75;
-}
 
 .losers {
   background-color: rgba(228, 10, 10, 0.2);
   border-radius: 10px;
+  text-shadow:
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000;
+}
+
+.losers h4 {
 }
 
 .winners {
   background-color: rgba(46, 222, 11, 0.2);
   border-radius: 10px;
+  text-shadow:
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000;
 }
 .winners h4 {
   text-align: right;
@@ -161,6 +185,11 @@ input[type="submit"] {
   opacity: 0.8;
   border-style: solid;
 }
+
+.topic-list {
+  list-style-type: disc;
+}
+
 .topic {
   margin-top: 10px;
   background-color: black;
@@ -230,15 +259,15 @@ input[type="submit"] {
   background-color: white;
 }
 
-.champ-loading-image {
-  height: 200px;
-  width: auto;
-}
-
 .player {
   height: 200px;
 }
 
 .player-section {
   text-align: center;
+}
+
+.player-header {
+  background-color: black;
+  opacity: 0.75;
 }

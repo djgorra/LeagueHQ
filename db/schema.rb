@@ -10,18 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206164812) do
+ActiveRecord::Schema.define(version: 20170208185750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "abilities", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.string  "description", null: false
+    t.string  "image",       null: false
+    t.integer "champion_id", null: false
+    t.index ["champion_id"], name: "index_abilities_on_champion_id", using: :btree
+  end
+
   create_table "champions", force: :cascade do |t|
-    t.string  "name",    null: false
-    t.string  "key",     null: false
-    t.integer "riot_id", null: false
-    t.string  "title",   null: false
-    t.text    "lore",    null: false
-    t.string  "img",     null: false
+    t.string  "name",       null: false
+    t.string  "key",        null: false
+    t.integer "riot_id",    null: false
+    t.string  "title",      null: false
+    t.text    "lore",       null: false
+    t.string  "img",        null: false
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "magic"
+    t.integer "difficulty"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -98,6 +110,13 @@ ActiveRecord::Schema.define(version: 20170206164812) do
     t.datetime "updated_at"
     t.index ["topic_id"], name: "index_replies_on_topic_id", using: :btree
     t.index ["user_id"], name: "index_replies_on_user_id", using: :btree
+  end
+
+  create_table "skins", force: :cascade do |t|
+    t.integer "num",         null: false
+    t.string  "name",        null: false
+    t.integer "champion_id", null: false
+    t.index ["champion_id"], name: "index_skins_on_champion_id", using: :btree
   end
 
   create_table "topics", force: :cascade do |t|

@@ -1,4 +1,13 @@
 <div class="show-page">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li><a href="/users/<%=@user.id%>"><%=@user.email%></a></li>
+      <li>
+        <span class="show-for-sr">Current: </span> Match
+      </li>
+    </ul>
+  </nav>
   <div class="header small-12 medium-6 large-6">
     <h1><%= @match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h1>
     <h2><%= @match.date %></h2>
@@ -6,20 +15,20 @@
   </div>
   <div class="row">
     <div class="winners small-6 medium-6 large-6 columns">
-      <h4><strong>WON</strong></h4>
-      <% @match.players.where(won: true).order(:lane).each do |player| %>
+      <h4><strong>VICTORY</strong></h4>
+      <% @winners.each do |player| %>
       <div class="player" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= player.champion %>_0.jpg); background-repeat: no-repeat; background-size: cover;">
-        <h5 class="player-header"><img height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%= player.icon_id %>.png"> <%= player.name %></h5>
+        <h5 class="player-header"><img height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%= player.icon_id %>.png"><%= player.name %></h5>
         <div class="player-section small-3 medium-3 large-3 columns">
           <small><%= player.lane %></small><br>
           <small><%= player.kills %> / <%= player.deaths %> / <%= player.assists %></small><br>
           <small>Level <%= player.level %></small><br>
           <small>Towers killed: <%= player.tower_kills %></small><br>
           <% if player.first_blood %>
-            <small>First blood!</small><br>
+            <small><u>First blood!</u></small><br>
           <% end %>
           <% if player.first_tower %>
-            <small>First tower!</small><br>
+            <small><u>First tower!</u></small><br>
           <% end %>
         </div>
 
@@ -62,8 +71,8 @@
     <% end %>
     </div>
     <div class="losers small-6 medium-6 large-6 columns">
-      <h4><strong>LOST</strong></h4>
-      <% @match.players.where(won: false).order(:lane).each do |player| %>
+      <h4><strong>DEFEAT</strong></h4>
+      <% @losers.each do |player| %>
         <div class="player" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= player.champion %>_0.jpg); background-repeat: no-repeat; background-size: cover;">
           <h5 class="player-header"><img height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%= player.icon_id %>.png"> <%= player.name %></h5>
           <div class="player-section small-3 medium-3 large-3 columns">
