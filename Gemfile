@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'rb-readline'
 gem 'httparty'
+gem 'react-rails', '~> 1.0'
+gem 'active_model_serializers', '~> 0.10.0'
 
 
 group :development do

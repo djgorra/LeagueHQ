@@ -28,8 +28,8 @@
       <% @champion.topics.each do |topic| %>
       <a href="/champions/<%=@champion.id%>/topics/<%=topic.id%>">
       <div class="topic">
-        <li><%= topic.title %></li>
-          <small>Submitted by <%= topic.user.email %></small>
+        <h5><%= topic.title %></h5>
+          <p>Submitted by <%= topic.user.riot_username %> at <%= topic.created_at %></p>
       </div>
       </a>
       <% end %>

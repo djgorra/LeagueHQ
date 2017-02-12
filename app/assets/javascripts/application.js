@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 //foundation
@@ -23,7 +26,7 @@ $(document).ready(function(){
     $("#filter").keyup(function(){
 
         var filter = $(this).val();
-        $(".accordion-item .accordion-title").each(function(){
+        $(".icon-container").each(function(){
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
                 $(this).fadeOut();
 
@@ -35,20 +38,13 @@ $(document).ready(function(){
 });
 
 //background changer
-function backgroundChanger(champ, skin) {
-  if (typeof skin === 'undefined') { optionalArg = '0'; }
+function backgroundChanger(champ) {
 
   if (exampleSwitch.checked) {
     var img = new Image();
-    img.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_${skin}.jpg`;
+    img.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg`;
     img.onload = function () {
     $("body").css({"background-image":`url(${img.src})`, "transition":"background-image 0.5s"});
     };
-    $('html, body').animate({
-      scrollTop: $(`${champ}`).offset().top
-  }, 2000);
-  }
-  else {
-    $("body").css({"background-image":`url()`, "transition":"background-image 0.5s"});
   }
 }
