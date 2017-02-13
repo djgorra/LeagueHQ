@@ -9,13 +9,18 @@ class MatchesController < ApplicationController
       end
     end
 
-    url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=5&api_key=RGAPI-170add2c-df6d-4bb7-975c-5b970695a787"
+    url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=5&api_key=#{ENV["api-key"]}"
     response = HTTParty.get(url)
 
     response["matches"].each do |match|
       unless Match.exists?(match_id: match["matchId"].to_s)
-        Match.create(user_id: params[:user_id], match_id: match["matchId"].to_s, champion_id: match["champion"], gamemode: match["queue"], lane: match["lane"], season: match["season"])
-        url2 = "https://na.api.pvp.net/api/lol/na/v2.2/match/#{match["matchId"]}?api_key=RGAPI-170add2c-df6d-4bb7-975c-5b970695a787"
+        Match.create(user_id: params[:user_id],
+         match_id: match["matchId"].to_s,
+          champion_id: match["champion"],
+           gamemode: match["queue"],
+            lane: match["lane"],
+             season: match["season"])
+        url2 = "https://na.api.pvp.net/api/lol/na/v2.2/match/#{match["matchId"]}?api_key=#{ENV["api-key"]}"
         response2 = HTTParty.get(url2)
         thismatch = Match.find_by(match_id: match["matchId"].to_s)
         champion = Champion.find_by(riot_id: thismatch.champion_id)
