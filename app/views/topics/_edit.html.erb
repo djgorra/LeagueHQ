@@ -1,0 +1,5 @@
+<%= form_for [@champion, topic] do |f| %>
+  <%= f.text_field :title, class: "title", :maxlength => 100, placeholder: "Title" %>
+  <%= f.text_area :content, class: "content", placeholder: "Content" %>
+  <%= f.submit "Submit" %>
+<% end %>

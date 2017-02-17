@@ -1,0 +1,38 @@
+<div class="show-page">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li>
+        <span class="show-for-sr">Current: </span> <%= @champion.name %>
+      </li>
+    </ul>
+  </nav>
+
+  <h1><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= @champion.img %>"><strong>Topics for <%= @champion.title %></strong></h1>
+  <ul class="accordion small-12 medium-8 large-6" id="new-topic" data-accordion data-allow-all-closed="true">
+    <li class="accordion-item" data-accordion-item>
+      <a href="#" class="accordion-title">New Topic</a>
+      <div class="accordion-content" data-tab-content>
+        <% if user_signed_in? %>
+          <%= render :partial => 'topics/form' %>
+        <% else %>
+          <h3>Must be signed in!</h3>
+          <%= render :partial => 'devise/sessions/form' %>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="topics small-12 medium-8 large-6">
+    <% if @champion.topics.length > 0 %>
+      <% @champion.topics.each do |topic| %>
+      <a href="/champions/<%=@champion.id%>/topics/<%=topic.id%>">
+      <div class="topic">
+        <h5><%= topic.title %></h5>
+          <p>Submitted by <%= topic.user.riot_username %> at <%= topic.created_at %></p>
+      </div>
+      </a>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
