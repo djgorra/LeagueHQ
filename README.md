@@ -1,24 +1,14 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# LeagueHQ
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby 2.2.5
 
-* System dependencies
+### Setting up locally
+1. Clone down the repo, then set up the database.
+`https://github.com/djgorra/LeagueHQ.githttps://github.com/djgorra/LeagueHQ.git`
+`rake db:setup`
+2. Start the server
+`rails s`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* LeagueHQ is both a message board where League of Legends players can chat with each other about their favorite characters, and a hub for all of the data provided by the API about the game. This includes static data such as each character's abilities, their backstories and their in-game statistics, as well as dynamic data such as detailed information about a user's matches.
