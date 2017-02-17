@@ -14,7 +14,7 @@ class ChampionInfo extends Component {
       return <li key={skin.num}>  {skin.name}<img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + keyy + "_" + skin.num + ".jpg"}/></li>;
     })
 
-    let abilities = this.props.abilities.reverse().map(function(ability){
+    let abilities = this.props.abilities.map(function(ability){
       return <li key={ability.id}><img src={"http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/" + ability.image}/>{ability.name}<br/><small>{ability.description}</small></li>;
 
     })
