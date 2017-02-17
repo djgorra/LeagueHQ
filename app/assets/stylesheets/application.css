@@ -82,7 +82,7 @@ body {
 
 
 .icon-container {
-  font-size: 0px;
+  font-size: 0;
   border-style: solid;
   border-color: transparent;
 }
@@ -138,6 +138,7 @@ body {
 }
 
 .accordion {
+ background: grey;
  background: rgba(54, 54, 54, 0.5);
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -174,7 +175,7 @@ body {
 .skin .hover-text {
   position:relative;
   bottom:30px;
-  left:0px;
+  left:0;
   visibility:hidden;
 }
 .skin:hover .hover-text {
@@ -196,10 +197,11 @@ body {
 .user-form label {
   color: white;
 }
+
 .user-form {
   color: white;
-    background-color: rgba(10, 10, 10, 0.5);
-
+  background-color: grey;
+  background-color: rgba(10, 10, 10, 0.5);
 }
 
 input[type="submit"] {
@@ -222,6 +224,7 @@ input[type="submit"] {
 
 
 .losers {
+  background-color: red;
   background-color: rgba(228, 10, 10, 0.2);
   border-radius: 10px;
   text-shadow:
@@ -231,10 +234,8 @@ input[type="submit"] {
               1px 1px 0 #000;
 }
 
-.losers h4 {
-}
-
 .winners {
+  background-color: green;
   background-color: rgba(46, 222, 11, 0.2);
   border-radius: 10px;
   text-shadow:

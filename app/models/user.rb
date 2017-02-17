@@ -20,7 +20,7 @@ class User < ApplicationRecord
   def get_riot_info
     unless self.riot_username.nil?
       response = HTTParty.get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{self.riot_username}?api_key=RGAPI-170add2c-df6d-4bb7-975c-5b970695a787")
-        if response["status"].nil?
+      if response["status"].nil?
         id = response[self.riot_username.downcase]["id"]
         icon = response[self.riot_username.downcase]["profileIconId"]
         level = response[self.riot_username.downcase]["summonerLevel"]

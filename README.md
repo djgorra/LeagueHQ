@@ -1,6 +1,6 @@
 # LeagueHQ
 
-Things you may want to cover:
+[![Code Climate](https://lima.codeclimate.com/github/djgorra/LeagueHQ/badges/gpa.svg)](https://lima.codeclimate.com/github/djgorra/LeagueHQ)
 
 * Ruby 2.2.5
 
