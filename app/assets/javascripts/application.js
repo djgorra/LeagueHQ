@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 //foundation
@@ -21,22 +24,22 @@ $(function(){ $(document).foundation(); });
 //live-search
 $(document).ready(function(){
     $("#filter").keyup(function(){
-        // Retrieve the input field text and reset the count to zero
-        var filter = $(this).val(), count = 0;
-        // Loop through the comment list
-        $(".accordion-item a").each(function(){
-            // If the list item does not contain the text phrase fade it out
+
+        var filter = $(this).val();
+        $(".icon-container").each(function(){
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
                 $(this).fadeOut();
-            // Show the list item if the phrase matches and increase the count by 1
+
             } else {
                 $(this).show();
-                count++;
             }
         });
     });
 });
+
+//background changer
 function backgroundChanger(champ) {
+
   if (exampleSwitch.checked) {
     var img = new Image();
     img.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg`;
@@ -45,4 +48,3 @@ function backgroundChanger(champ) {
     };
   }
 }
-//"document.body.style.cssText+=';background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= champ.key %>_0.jpg);transition: background 0.5s linear;-webkit-transition: background 1.0s linear;';"
