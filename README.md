@@ -6,7 +6,7 @@ Things you may want to cover:
 
 ### Setting up locally
 1. Clone down the repo, then set up the database.
-`https://github.com/djgorra/LeagueHQ.githttps://github.com/djgorra/LeagueHQ.git`
+`https://github.com/djgorra/LeagueHQ.git`
 `rake db:setup`
 2. Start the server
 `rails s`
