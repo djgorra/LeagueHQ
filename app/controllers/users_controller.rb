@@ -26,7 +26,7 @@ class UsersController < ApplicationController
      flash[:notice] = "Bye! Your account has been successfully cancelled.  We hope to see you again soon."
      redirect_to root_path
    end
- end
+  end
 
 
  def destroy
