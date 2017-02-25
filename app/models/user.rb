@@ -19,6 +19,7 @@ class User < ApplicationRecord
   private
   def get_riot_info
     unless self.riot_username.nil?
+
       response = HTTParty.get("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/#{self.riot_username}?api_key=#{ENV["api-key"]}")
       if response["status"].nil?
         id = response[self.riot_username.downcase]["id"]
