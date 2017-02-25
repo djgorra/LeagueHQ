@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   def new
+    #I am very sorry for what you are about to witness.
     @user = User.find(params[:user_id])
     if @user.matches.exists?
       matches = Match.where(user_id: @user.id)
