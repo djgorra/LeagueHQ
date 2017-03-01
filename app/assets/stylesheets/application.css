@@ -322,9 +322,16 @@ input[type="submit"] {
 
 .card-container {
   display: inline-block;
-  width: 150px;
+  width: 120px;
+  height: 120px;
   text-align: center;
   color: white;
+  background-repeat: no-repeat;
+  text-shadow:
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000;
 }
 
 .card-container:hover {

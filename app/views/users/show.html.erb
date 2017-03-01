@@ -46,20 +46,22 @@
 
     <div class="tabs-panel" id="matches-panel">
       <% if @user.matches.exists? %>
-      <%= button_to "Update Matches", new_user_match_path(@user), method: :get %>
+        <%= button_to "Update Matches", new_user_match_path(@user), method: :get %>
+        </br>
         <% @user.matches.each do |match| %>
-          <a class="card-container" href="<%= match.user.id %>/matches/<%= match.id %>">
+          <a class="card-container" href="<%= match.user.id %>/matches/<%= match.id %>" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/<%=match.champion%>.png)">
             <div class="card">
               <div class="card-divider">
-                <h4><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h4>
-              </div>
-              <img class="champ-loading-image" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/<%=match.champion%>.png">
-              <div class="card-section">
-                <% if match.players.where(riot_id: @user.riot_id).where(won: true).exists? %>
-                <small>VICTORY</small><br>
+                <% unless match.gamemode.humanize.chomp(" sr").chomp("5x5").length < 12 %>
+                  <h6><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h6>
                 <% else %>
-                <small>DEFEAT</small><br>
+                  </br>
+                  <h6><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h6>
                 <% end %>
+              </div>
+              <div class="card-section">
+                </br>
+                </br>
                 <small><%= match.date %></small>
               </div>
             </div>

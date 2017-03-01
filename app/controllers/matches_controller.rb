@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
 
-    url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=5&api_key=#{ENV["api-key"]}"
+    url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=30&api_key=#{ENV["api-key"]}"
     response = HTTParty.get(url)
 
     response["matches"].each do |match|
@@ -11,10 +11,11 @@ class MatchesController < ApplicationController
         Match.create(user_id: params[:user_id],
          match_id: match["matchId"].to_s,
          champion_id: match["champion"],
-         champion: Champion.where(riot_id: match["champion"])[0].name,
+         champion: Champion.where(riot_id: match["champion"])[0].key,
          gamemode: match["queue"],
          lane: match["lane"],
-         season: match["season"])
+         season: match["season"],
+         date: Date.strptime((match["timestamp"]/1000).to_s, '%s'))
       end
     end
     redirect_to user_path(@user)
@@ -28,7 +29,7 @@ class MatchesController < ApplicationController
     response = HTTParty.get(url)
     date = (response["matchCreation"]/1000).to_s
     duration = (response["matchDuration"]/60).floor
-    @match.update_attributes(:date => Date.strptime(date, '%s'), :duration => "#{duration} minutes", :champion => @match.champion)
+    @match.update_attributes(:date => Date.strptime((response["matchCreation"]/1000).to_s, '%s'), :duration => "#{duration} minutes", :champion => @match.champion)
     count = 0
 
     response["participants"].each do |player|
