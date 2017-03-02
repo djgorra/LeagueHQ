@@ -8,13 +8,13 @@
       </li>
     </ul>
   </nav>
-  <div class="header small-12 medium-6 large-6">
+  <div class="header medium-offset-3 small-12 medium-6 large-6">
     <h1><%= @match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h1>
     <h2><%= @match.date %></h2>
     <h3><%= @match.duration %></h3>
   </div>
   <div class="row">
-    <div class="winners small-6 medium-6 large-6 columns">
+    <div class="winners small-12 medium-6 large-6 columns">
       <h4><strong>VICTORY</strong></h4>
       <% @winners.each do |player| %>
       <div class="player" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= player.champion %>_0.jpg); background-repeat: no-repeat; background-size: cover;">
@@ -37,22 +37,22 @@
             <% if player.item_0 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_0 %>.png">
             <% end %>
-            <% if player.item_0 > 0 %>
+            <% if player.item_1 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_1 %>.png">
             <% end %>
-            <% if player.item_0 > 0 %>
+            <% if player.item_2 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_2 %>.png">
             <% end %>
-            <% if player.item_0 > 0 %>
+            <% if player.item_3 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_3 %>.png">
             <% end %>
-            <% if player.item_0 > 0 %>
+            <% if player.item_4 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_4 %>.png">
             <% end %>
-            <% if player.item_0 > 0 %>
+            <% if player.item_5 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_5 %>.png">
             <% end %>
-            <% if player.item_0 > 0 %>
+            <% if player.item_6 > 0 %>
             <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_6 %>.png">
             <% end %>
           </small><br>
@@ -70,7 +70,7 @@
       </div>
     <% end %>
     </div>
-    <div class="losers small-6 medium-6 large-6 columns">
+    <div class="losers small-12 medium-6 large-6 columns">
       <h4><strong>DEFEAT</strong></h4>
       <% @losers.each do |player| %>
         <div class="player" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/<%= player.champion %>_0.jpg); background-repeat: no-repeat; background-size: cover;">
@@ -93,22 +93,22 @@
               <% if player.item_0 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_0 %>.png">
               <% end %>
-              <% if player.item_0 > 0 %>
+              <% if player.item_1 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_1 %>.png">
               <% end %>
-              <% if player.item_0 > 0 %>
+              <% if player.item_2 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_2 %>.png">
               <% end %>
-              <% if player.item_0 > 0 %>
+              <% if player.item_3 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_3 %>.png">
               <% end %>
-              <% if player.item_0 > 0 %>
+              <% if player.item_4 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_4 %>.png">
               <% end %>
-              <% if player.item_0 > 0 %>
+              <% if player.item_5 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_5 %>.png">
               <% end %>
-              <% if player.item_0 > 0 %>
+              <% if player.item_6 > 0 %>
               <img style="height: 25px; width: 25px;" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/item/<%= player.item_6 %>.png">
               <% end %>
             </small><br>
