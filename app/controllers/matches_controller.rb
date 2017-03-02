@@ -11,6 +11,7 @@ class MatchesController < ApplicationController
         Match.create(user_id: params[:user_id],
          match_id: match["matchId"].to_s,
          champion_id: match["champion"],
+
          champion: Champion.where(riot_id: match["champion"])[0].key,
          gamemode: match["queue"],
          lane: match["lane"],
@@ -29,7 +30,8 @@ class MatchesController < ApplicationController
     response = HTTParty.get(url)
     date = (response["matchCreation"]/1000).to_s
     duration = (response["matchDuration"]/60).floor
-    @match.update_attributes(:date => Date.strptime((response["matchCreation"]/1000).to_s, '%s'), :duration => "#{duration} minutes", :champion => @match.champion)
+
+    @match.update_attributes(:duration => "#{duration} minutes", :champion => @match.champion)
     count = 0
 
     response["participants"].each do |player|
