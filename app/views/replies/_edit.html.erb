@@ -1,6 +1,8 @@
-<%= form_for [@champion, @topic, reply] do |f| %>
-  <%= f.text_area :content, class: "reply-content", placeholder: "Reply" %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :topic_id, value: @topic.id %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="edit-form small-12">
+  <%= form_for [@champion, @topic, reply] do |f| %>
+    <%= f.text_area :content, class: "reply-content", placeholder: "Reply" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :topic_id, value: @topic.id %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>

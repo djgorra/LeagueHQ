@@ -44,7 +44,7 @@ class ChampionInfo extends Component {
             </div>
             <div className ="loreContainer">
               <h5>Lore</h5>
-              <td dangerouslySetInnerHTML={{__html: lore}} />
+              <p dangerouslySetInnerHTML={{__html: lore}} />
             </div>
             <div className="skinsContainer">
               <h5>Skins</h5>

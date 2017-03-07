@@ -56,7 +56,12 @@ class App extends React.Component {
 
     return (
       <div className = "App row">
-        <div className = "column small-6">
+
+        <div className = "columns show-for-small-only small-12 medium-6">
+            {showChampion}
+        </div>
+
+        <div className = "column small-12 medium-6">
           <h1>Champions</h1>
           <ul className = "champion-list">
             <ChampionCollection
@@ -67,7 +72,7 @@ class App extends React.Component {
           </ul>
         </div>
 
-        <div className = "columns small-6">
+        <div className = "columns show-for-medium-up small-12 medium-6">
             {showChampion}
         </div>
       </div>
