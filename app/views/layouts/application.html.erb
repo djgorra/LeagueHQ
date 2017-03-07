@@ -33,14 +33,7 @@
 
   <body>
 
-
-
-      <div class="title-bar" data-responsive-toggle="mobile-menu" data-hide-for="large">
-        <button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
-        <div class="title-bar-title"><a href="/">LeagueHQ</a></div>
-      </div>
-
-      <div class="top-bar stacked-for-medium" id="topbar-menu">
+      <div class="top-bar stacked-for-small" id="topbar-menu">
         <div class="top-bar-title">
           <a class="hide-for-small-only" href="/">LeagueHQ</a>
         </div>
@@ -77,10 +70,7 @@
             <% else %>
             <ul class="dropdown menu" data-dropdown-menu>
               <li>
-                <a href="#">Login</a>
-                <ul class="menu">
-                  <li><%= render :partial => "devise/sessions/form" %></li>
-                </ul>
+                <a data-open="loginModal">Login</a>
               </li>
               <li>
                 <%= link_to "Sign up", new_user_registration_path %>
@@ -88,6 +78,13 @@
             </ul>
             <% end %>
           </div>
+      </div>
+
+      <div class="reveal" id="loginModal" data-reveal>
+        <%= render :partial => "devise/sessions/form" %>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
 

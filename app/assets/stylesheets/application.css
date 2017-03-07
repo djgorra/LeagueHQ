@@ -25,6 +25,15 @@ body {
   list-style-type: none;
 }
 
+.reveal {
+  background-color: black;
+  opacity: 0.8;
+}
+
+.login-partial {
+  margin-top: 30px;
+}
+
 .champion-list li {
   display: inline-block;
   margin: 10px;
@@ -33,7 +42,6 @@ body {
 .callout {
   background-color: black;
   opacity: 0.8;
-  width: 40em;
 }
 
 .skinsContainer {
@@ -156,17 +164,6 @@ body {
   border-radius: 100px;
 }
 
-#accordion-content {
-  opacity: 0.8;
-  height: 450px;
-}
-
-#accordion-content p {
-  text-align: center;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
 .tabs-panel {
   overflow-y: scroll;
   min-height: 300px;
@@ -274,10 +271,6 @@ input[type="submit"] {
   color: white;
 }
 
-#new-topic {
-  margin-left: 20px;
-}
-
 .title {
   max-width: 400px;
 }
@@ -286,7 +279,6 @@ input[type="submit"] {
   max-width: 400px;
   height: 100px;
   line-height: 28px;
-  z-index: 9999;
 }
 
 .topic-head {
@@ -302,7 +294,7 @@ input[type="submit"] {
   z-index: -1;
 }
 
-.reply-form {
+.reply-form-container {
   margin-top: 10px;
   background-color: black;
   text-indent: 10px;
@@ -310,14 +302,19 @@ input[type="submit"] {
   border-style: solid;
   z-index: -1;
 }
+.reply-form {
+  padding: 10px;
+}
+
+.edit-form {
+  padding: 10px;
+  opacity: 0.9;
+  background-color: black;
+}
 
 .reply-content {
   height: 100px;
   z-index: -1;
-}
-.dropdown-pane {
-  width: 600px;
-  z-index: 999999999;
 }
 
 .card-container {

@@ -245,7 +245,7 @@ $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
   default: 0.9rem,
-  large: 1.25rem,
+  large: 1.6rem,
 );
 $button-opacity-disabled: 0.25;
 
@@ -292,7 +292,7 @@ $drilldown-background: $white;
 // 16. Dropdown
 // ------------
 
-$dropdown-padding: 1rem;
+$dropdown-padding: 0;
 $dropdown-border: 1px solid $medium-gray;
 $dropdown-font-size: 1rem;
 $dropdown-width: 300px;
@@ -308,7 +308,7 @@ $dropdown-sizes: (
 
 $dropdownmenu-arrows: true;
 $dropdownmenu-arrow-color: $anchor-color;
-$dropdownmenu-min-width: 200px;
+$dropdownmenu-min-width: 300px;
 $dropdownmenu-background: $white;
 $dropdownmenu-border: 1px solid $medium-gray;
 
