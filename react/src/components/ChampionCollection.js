@@ -18,6 +18,7 @@ class ChampionCollection extends Component {
         }
         let handleChampionSelect = () => {
           this.props.handleChampionSelect(champion.id, champion.key);
+          this.forceUpdate();
           };
         return(
           <Champion

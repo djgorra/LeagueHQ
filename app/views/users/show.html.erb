@@ -1,4 +1,5 @@
 <div class="show-page">
+  
   <nav aria-label="You are here:" role="navigation">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
@@ -51,7 +52,7 @@
       <% if @user.matches.exists? %>
         <%= button_to "Update Matches", new_user_match_path(@user), method: :get %>
         </br>
-        <% @user.matches.each do |match| %>
+        <% @user.matches.sort{|a,b| b.date <=> a.date}.each do |match| %>
           <a class="card-container" href="<%= match.user.id %>/matches/<%= match.id %>" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/<%=match.champion%>.png)">
             <div class="card">
               <div class="card-divider">
