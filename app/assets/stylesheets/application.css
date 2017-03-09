@@ -44,6 +44,7 @@ body {
 .callout {
   background-color: black;
   opacity: 0.8;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
 .skinsContainer {

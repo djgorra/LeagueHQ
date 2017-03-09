@@ -1,3 +1,6 @@
+body {
+  background-image: url("/assets/lol2-cee7f8d780bdd936080d72bf8d816be5dc43e7d67ed70195bbdeda99c5127c41.png");
+}
 /**
  * Foundation for Sites by ZURB
  * Version 6.2.1
@@ -2409,7 +2412,7 @@ p + .stat {
 }
 /* line 197, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_button.scss */
 .button.large {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
 }
 /* line 202, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_button.scss */
 .button.expanded {
@@ -3177,7 +3180,7 @@ select[multiple] {
 }
 /* line 150, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_button-group.scss */
 .button-group.large .button {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
 }
 /* line 156, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_button-group.scss */
 .button-group.expanded {
@@ -3455,7 +3458,7 @@ select[multiple] {
   border-radius: 0;
   display: block;
   font-size: 1rem;
-  padding: 1rem;
+  padding: 0;
   position: absolute;
   visibility: hidden;
   width: 300px;
@@ -3749,7 +3752,7 @@ select[multiple] {
   position: absolute;
   top: 0;
   left: 100%;
-  min-width: 200px;
+  min-width: 300px;
   z-index: 1;
   background: #fefefe;
   border: 1px solid #cacaca;
@@ -4960,7 +4963,7 @@ table.hover tr:nth-of-type(even):hover {
 .tabs {
   margin: 0;
   list-style-type: none;
-  background: #343033;
+  background: #0a0a0a;
   border: 1px solid #e6e6e6;
 }
 /* line 138, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/util/_mixins.scss */
@@ -5225,7 +5228,7 @@ table.hover tr:nth-of-type(even):hover {
 /* line 47, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_top-bar.scss */
 .top-bar,
 .top-bar ul {
-  background-color: #343033;
+  background-color: #0a0a0a;
 }
 /* line 60, /Users/djgorra/.gem/ruby/2.2.5/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_top-bar.scss */
 .top-bar input {
@@ -5303,13 +5306,93 @@ table.hover tr:nth-of-type(even):hover {
 
 
 body {
-  background-image: url("lol2.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: black;
   font-family: 'Amaranth';
   list-style-type: none;
+}
+
+.reveal {
+  background-color: black;
+  opacity: 0.8;
+}
+
+.login-partial {
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+
+.champion-list li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.callout {
+  background-color: black;
+  opacity: 0.8;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.skinsContainer {
+  height: 500px;
+  overflow-y: scroll;
+  border-color: white;
+  border-radius: 0.1px;
+  border-style: solid;
+  margin: 5px;
+  padding: 5px;
+}
+.abilitiesContainer {
+  height: 500px;
+  overflow-y: scroll;
+  border-color: white;
+  border-radius: 0.1px;
+  border-style: solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.loreContainer {
+  height: 500px;
+  overflow-y: scroll;
+  border-color: white;
+  border-radius: 0.1px;
+  border-style: solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.topicsContainer {
+  height: 500px;
+  max-height: 500px;
+  overflow-y: scroll;
+  border-color: white;
+  border-radius: 0.1px;
+  border-style: solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.topicsContainer ul {
+  list-style-type: disc;
+  color: white;
+}
+
+
+.icon-container {
+  font-size: 0;
+  border-style: solid;
+  border-color: transparent;
+  box-shadow: 0px 0px 25px 6px rgba(0,0,0,0.4);
+
+}
+
+.icon-container:hover {
+  border-style: solid;
+  border-color: white;
 }
 
 .menu {
@@ -5353,16 +5436,7 @@ body {
   display: inline-block;
 }
 
-.accordion {
- background: rgba(54, 54, 54, 0.5);
-}
-
-.accordion-item {
-  margin: 5px;
-}
-
-.accordion-title {
-  font-size: 25px;
+.user_remember_me {
   color: white;
 }
 
@@ -5370,18 +5444,21 @@ body {
   border-radius: 100px;
 }
 
-#accordion-content {
-  opacity: 0.8;
-  height: 450px;
+.tabs-panel {
+  overflow-y: scroll;
+  min-height: 300px;
 }
 
-#accordion-content p {
-  text-align: center;
-  max-height: 300px;
-  overflow-y: scroll;
-  padding-left: 2px;
-  padding-right: 2px;
+.skin .hover-text {
+  position:relative;
+  bottom:30px;
+  left:0;
+  visibility:hidden;
 }
+.skin:hover .hover-text {
+  visibility:visible;
+}
+
 .accordion-content-right {
   height: 400px;
 }
@@ -5389,21 +5466,21 @@ body {
 .footer p {
   font-size: 15px;
   color: white;
-  margin-top: 300px;
+  margin-top: 400px;
   margin-left: 3px;
   max-width: 100vw;
 }
 
-.edit-user-form label {
+.user-form label {
   color: white;
 }
-.edit-user-form {
+
+.user-form {
   color: white;
-  margin-left: 30px;
+  background-color: grey;
+  background-color: rgba(10, 10, 10, 0.5);
 }
-.edit-user-form h3 {
-  color: white;
-}
+
 input[type="submit"] {
   background-color: black;
   color: white;
@@ -5414,6 +5491,40 @@ input[type="submit"] {
   color: white;
 }
 
+.header {
+  display: inline-block;
+  background-color: black;
+  opacity: 0.5;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+.losers {
+  background-color: red;
+  background-color: rgba(228, 10, 10, 0.2);
+  border-radius: 10px;
+  text-shadow:
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000;
+}
+
+.winners {
+  background-color: green;
+  background-color: rgba(46, 222, 11, 0.2);
+  border-radius: 10px;
+  text-shadow:
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000;
+}
+.winners h4 {
+  text-align: right;
+}
+
 .reply {
   margin-top: 10px;
   background-color: black;
@@ -5421,6 +5532,7 @@ input[type="submit"] {
   opacity: 0.8;
   border-style: solid;
 }
+
 .topic {
   margin-top: 10px;
   background-color: black;
@@ -5430,12 +5542,13 @@ input[type="submit"] {
   min-height: 50px;
 }
 
-.topics a {
-  color: white;
+.topics p {
+  text-indent: 10px;
+  font-size: 15px;
 }
 
-#new-topic {
-  margin-left: 20px;
+.topics a {
+  color: white;
 }
 
 .title {
@@ -5446,7 +5559,6 @@ input[type="submit"] {
   max-width: 400px;
   height: 100px;
   line-height: 28px;
-  z-index: 9999;
 }
 
 .topic-head {
@@ -5455,26 +5567,66 @@ input[type="submit"] {
   opacity: 0.8;
   text-indent: 10px;
   margin-bottom: 40px;
+  padding: 5px;
+  box-shadow: 0px 0px 25px 6px rgba(0,0,0,0.4);
 }
 
 .reply {
   z-index: -1;
+  box-shadow: 0px 0px 25px 6px rgba(0,0,0,0.4);
 }
 
-.reply-form {
+.reply-form-container {
   margin-top: 10px;
   background-color: black;
   text-indent: 10px;
   opacity: 0.8;
   border-style: solid;
   z-index: -1;
+  box-shadow: 0px 0px 25px 6px rgba(0,0,0,0.4);
+}
+.reply-form {
+  padding: 10px;
+}
+
+.edit-form {
+  padding: 10px;
+  opacity: 0.9;
+  background-color: black;
 }
 
 .reply-content {
   height: 100px;
   z-index: -1;
 }
-.dropdown-pane {
-  width: 600px;
-  z-index: 999999999;
+
+.card-container {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  color: white;
+  background-repeat: no-repeat;
+  text-shadow:
+              -1px -1px 0 #000,
+              1px -1px 0 #000,
+              -1px 1px 0 #000,
+              1px 1px 0 #000;
+}
+
+.card-container:hover {
+  background-color: white;
+}
+
+.player {
+  height: 200px;
+}
+
+.player-section {
+  text-align: center;
+}
+
+.player-header {
+  background-color: black;
+  opacity: 0.75;
 }
