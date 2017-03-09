@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 class ChampionInfo extends Component {
   constructor(props) {
     super(props);
@@ -29,27 +31,40 @@ class ChampionInfo extends Component {
           <div className="callout">
             <h1>{this.props.name}</h1>
             <h5>{this.props.title}</h5>
+            <Tabs>
+              <TabList>
+                <Tab>Recent Topics</Tab>
+                <Tab>Abilities</Tab>
+                <Tab>Lore</Tab>
+                <Tab>Skins</Tab>
+              </TabList>
+              <TabPanel>
+                <div className ="topicsContainer">
+                  <ul>
+                  {topics}
+                  </ul>
+                  <a href={"/champions/" + this.props.id}>See All</a>
+                </div>
+              </TabPanel>
 
-            <div className ="topicsContainer">
-              <h5>Recent Topics:</h5>
-              <ul>
-              {topics}
-              </ul>
-              <a href={"/champions/" + this.props.id}>See All</a>
-            </div>
+              <TabPanel>
+                <div className ="abilitiesContainer">
+                  {abilities}
+                </div>
+              </TabPanel>
 
-            <div className ="abilitiesContainer">
-              <h5>Abilities</h5>
-              {abilities}
-            </div>
-            <div className ="loreContainer">
-              <h5>Lore</h5>
-              <p dangerouslySetInnerHTML={{__html: lore}} />
-            </div>
-            <div className="skinsContainer">
-              <h5>Skins</h5>
-              {skins}
-            </div>
+              <TabPanel>
+                <div className ="loreContainer">
+                  <p dangerouslySetInnerHTML={{__html: lore}} />
+                </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="skinsContainer">
+                  {skins}
+                </div>
+              </TabPanel>
+            </Tabs>
           </div>
       )
     }

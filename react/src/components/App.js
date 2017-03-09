@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import ChampionCollection from './ChampionCollection';
 import ChampionInfo from './ChampionInfo';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,9 +56,10 @@ class App extends React.Component {
     }
 
     return (
+      <StickyContainer>
       <div className = "App row">
 
-        <div className = "columns show-for-small-only small-12 medium-6">
+        <div className = "columns show-for-small-only small-12">
             {showChampion}
         </div>
 
@@ -71,11 +73,13 @@ class App extends React.Component {
             />
           </ul>
         </div>
-
-        <div className = "columns show-for-medium-up small-12 medium-6">
-            {showChampion}
+        <div className = "columns show-for-medium-up medium-6">
+          <Sticky topOffset={0}>
+              {showChampion}
+          </Sticky>
         </div>
       </div>
+      </StickyContainer>
     );
   }
 }

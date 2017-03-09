@@ -1,7 +1,9 @@
-<%= form_for [@champion, Topic.new] do |f| %>
-  <%= f.text_field :title, class: "title", :maxlength => 100, placeholder: "Title" %>
-  <%= f.text_area :content, class: "content", placeholder: "Content" %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :champion_id, value: @champion.id %>
-  <%= f.submit "Submit" %>
-<% end %>
+<ul class="login-partial small-10">
+  <%= form_for [@champion, Topic.new] do |f| %>
+    <%= f.text_field :title, class: "title", :maxlength => 100, placeholder: "Title" %>
+    <%= f.text_area :content, class: "content", placeholder: "Content" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :champion_id, value: @champion.id %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</ul>
