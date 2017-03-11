@@ -11,7 +11,7 @@ class ChampionCollection extends Component {
 
     render() {
       let champions = this.props.champions.map(champion => {
-        
+
         let handleChampionSelect = () => {
           this.props.handleChampionSelect(champion.id, champion.key);
           this.forceUpdate();

@@ -1,7 +1,7 @@
 class ChampionsController < ApplicationController
 
   def index
-    @champions = Champion.order("id").all
+    @champions = Champion.all
     render json: @champions.as_json(:include => {:topics => {}, :skins => {}, :abilities => {}})
   end
 
