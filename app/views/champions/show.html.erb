@@ -9,7 +9,7 @@
   </nav>
 
   <h1><img class="champ-thumb" height="50" width="50" src="http://ddragon.leagueoflegends.com/cdn/7.1.1/img/champion/<%= @champion.img %>"><strong>Topics for <%= @champion.title %></strong></h1>
-  <button class="button large drowpdown" type="button" data-toggle="topic-dropdown">New Topic</button>
+  <button class="topic-button button large drowpdown" type="button" data-toggle="topic-dropdown">New Topic</button>
   <div class="dropdown-pane" id="topic-dropdown" data-dropdown data-auto-focus="true">
     <% if user_signed_in? %>
       <%= render :partial => "topics/form" %>

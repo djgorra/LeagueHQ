@@ -1,5 +1,5 @@
 <div class="show-page">
-  
+
   <nav aria-label="You are here:" role="navigation">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
@@ -13,7 +13,8 @@
     <% unless @user.icon_id.nil? %>
       <img class="champ-thumb" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%=@user.icon_id%>.png">
     <% end %>
-  <%= @user.email %></h1>
+    <%= @user.email %>
+  </h1>
 
   <div class="tabs-content small-12 medium-8 large-6" data-tabs-content="user-tabs">
 

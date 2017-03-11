@@ -25,6 +25,10 @@ body {
   list-style-type: none;
 }
 
+.row {
+  margin-top: 5px;
+}
+
 .reveal {
   background-color: black;
   opacity: 0.8;
@@ -46,38 +50,8 @@ body {
   opacity: 0.8;
 }
 
-.skinsContainer {
+.infoContainer {
   height: 500px;
-  overflow-y: scroll;
-  border-color: white;
-  border-radius: 0.1px;
-  border-style: solid;
-  margin: 5px;
-  padding: 5px;
-}
-.abilitiesContainer {
-  height: 500px;
-  overflow-y: scroll;
-  border-color: white;
-  border-radius: 0.1px;
-  border-style: solid;
-  margin: 5px;
-  padding: 5px;
-}
-
-.loreContainer {
-  height: 500px;
-  overflow-y: scroll;
-  border-color: white;
-  border-radius: 0.1px;
-  border-style: solid;
-  margin: 5px;
-  padding: 5px;
-}
-
-.topicsContainer {
-  height: 500px;
-  max-height: 500px;
   overflow-y: scroll;
   border-color: white;
   border-radius: 0.1px;
@@ -93,26 +67,30 @@ body {
 
 
 .icon-container {
-  font-size: 0;
-  border-style: solid;
-  border-color: transparent;
   box-shadow: 0px 0px 25px 6px rgba(0,0,0,0.4);
-
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  -webkit-transition: width 0.5s, margin-right 0.5s;
+  transition: width 0.5s, margin-right 0.5s, background-color 0.5s, border-top-right-radius 0.5s, border-bottom-right-radius 0.5s;
+  position: relative;
 }
 
 .icon-container:hover {
-  border-style: solid;
-  border-color: white;
+  background-color: black;
+  width: 160px;
+  margin-right: -100px;
+  z-index: 1000;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+
 }
 
+
 .menu {
-  z-index: 10;
   background-color: black;
 }
 
-.row {
-  margin-top: 5px;
-}
 
 .top-bar {
   width: 100%;

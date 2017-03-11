@@ -39,7 +39,7 @@ class ChampionInfo extends Component {
                 <Tab>Skins</Tab>
               </TabList>
               <TabPanel>
-                <div className ="topicsContainer">
+                <div className ="infoContainer">
                   <ul>
                   {topics}
                   </ul>
@@ -48,19 +48,19 @@ class ChampionInfo extends Component {
               </TabPanel>
 
               <TabPanel>
-                <div className ="abilitiesContainer">
+                <div className ="infoContainer">
                   {abilities}
                 </div>
               </TabPanel>
 
               <TabPanel>
-                <div className ="loreContainer">
+                <div className ="infoContainer">
                   <p dangerouslySetInnerHTML={{__html: lore}} />
                 </div>
               </TabPanel>
 
               <TabPanel>
-                <div className="skinsContainer">
+                <div className="infoContainer">
                   {skins}
                 </div>
               </TabPanel>
