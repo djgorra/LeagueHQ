@@ -1,3 +1,5 @@
+User.create(email: ENV["admin_email"], password: ENV["admin_password"], is_admin: true)
+
 url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=#{ENV["api-key"]}"
 response = HTTParty.get(url)
 response["data"].sort.each do |champ|

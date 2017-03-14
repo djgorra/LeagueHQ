@@ -72,7 +72,7 @@
             </div>
           </a>
         <% end %>
-      <% elsif @user.riot_username == "" %>
+      <% elsif @user.riot_username == "" || @user.riot_username == nil %>
       <p>Please add your Riot username to your LeagueHQ account on the Edit Profile page to view your match history.</p>
       <% else %>
         <%= button_to "Get Matches", new_user_match_path(@user), method: :get %>
