@@ -10,7 +10,7 @@
   </nav>
 
   <div class="topic-head small-12 medium-8 large-6">
-    <% if user_signed_in? && current_user.id == @topic.user.id %>
+    <% if user_signed_in? && current_user.id == @topic.user.id || user_signed_in? && current_user.is_admin %>
       <div class="button-group">
         <a class="button"><%= button_to "Delete", champion_topic_path(@topic.champion, @topic), method: :delete, data: { confirm: 'Are you sure?' }  %></a>
         <a class="button"><input type="submit" value="Edit" data-toggle="edit_topic_<%=@topic.id%>"></a>
@@ -47,7 +47,7 @@
     <% end %>
     <p> <%= reply.content %> <p>
 
-      <% if user_signed_in? && current_user.id == reply.user.id %>
+      <% if user_signed_in? && current_user.id == reply.user.id || user_signed_in? && current_user.is_admin %>
 
           <div class="button-group">
             <a class="button"><%= button_to "Delete", champion_topic_reply_path(@topic.champion, @topic, reply), method: :delete, data: { confirm: 'Are you sure?' }  %></a>
