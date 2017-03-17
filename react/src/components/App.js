@@ -64,7 +64,6 @@ class App extends React.Component {
         </div>
 
         <div className = "column small-12 medium-6">
-          <h1>Champions</h1>
           <ul className = "champion-list">
             <ChampionCollection
               champions= {this.state.champions}

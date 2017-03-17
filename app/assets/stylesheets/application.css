@@ -174,6 +174,7 @@ body {
 input[type="submit"] {
   background-color: black;
   color: white;
+  padding: 2px;
 }
 
 .show-page {
@@ -184,7 +185,7 @@ input[type="submit"] {
 .header {
   display: inline-block;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.8;
   text-align: center;
   border-radius: 10px;
 }
@@ -239,6 +240,10 @@ input[type="submit"] {
 
 .topics a {
   color: white;
+}
+
+.dropdown-pane {
+  background-color: black;
 }
 
 .title {
