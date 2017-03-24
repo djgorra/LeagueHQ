@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       champions: [],
+      selectedChampionInfo: null,
       selectedChampionId: null
     };
     this.handleChampionSelect = this.handleChampionSelect.bind(this);
@@ -32,26 +33,37 @@ class App extends React.Component {
       selectedChampionId: id
     });
     backgroundChanger(key)
+
+    $.ajax({
+      url: `/champions/${id}/info`,
+      contentType: 'application/json'
+      })
+      .done(data => {
+
+          this.setState({
+            selectedChampionInfo: data
+          });
+      });
   }
 
   render() {
     let showChampion;
 
-    if (this.state.selectedChampionId !== null) {
+    if (this.state.selectedChampionInfo !== null) {
       showChampion =
       <ChampionInfo
-        id = {this.state.champions[this.state.selectedChampionId-1].id}
-        name = {this.state.champions[this.state.selectedChampionId-1].name}
-        keyy = {this.state.champions[this.state.selectedChampionId-1].key}
-        title = {this.state.champions[this.state.selectedChampionId-1].title}
-        lore = {this.state.champions[this.state.selectedChampionId-1].lore}
-        attack = {this.state.champions[this.state.selectedChampionId-1].attack}
-        defense = {this.state.champions[this.state.selectedChampionId-1].defense}
-        magic = {this.state.champions[this.state.selectedChampionId-1].magic}
-        skins = {this.state.champions[this.state.selectedChampionId-1].skins}
-        topics = {this.state.champions[this.state.selectedChampionId-1].topics}
-        abilities = {this.state.champions[this.state.selectedChampionId-1].abilities}
-        img = {this.state.champions[this.state.selectedChampionId-1].image}
+        id = {this.state.selectedChampionInfo.id}
+        name = {this.state.selectedChampionInfo.name}
+        keyy = {this.state.selectedChampionInfo.key}
+        title = {this.state.selectedChampionInfo.title}
+        lore = {this.state.selectedChampionInfo.lore}
+        attack = {this.state.selectedChampionInfo.attack}
+        defense = {this.state.selectedChampionInfo.defense}
+        magic = {this.state.selectedChampionInfo.magic}
+        skins = {this.state.selectedChampionInfo.skins}
+        topics = {this.state.selectedChampionInfo.topics}
+        abilities = {this.state.selectedChampionInfo.abilities}
+        img = {this.state.selectedChampionInfo.image}
         />
     }
 

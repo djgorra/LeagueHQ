@@ -22,8 +22,9 @@ class ChampionInfo extends Component {
     })
 
     let topics = this.props.topics.slice(0, 10).map(function(topic){
-      return <li key={topic.id}><a href={"/champions/" + topic.champion_id + "/topics/" + topic.id}>{topic.title}</a></li>
-
+      return <li key={topic.id} className="indexTopic"><a href={"/champions/" + topic.champion_id + "/topics/" + topic.id}>{topic.title}</a>
+      <br/>Submitted on {topic.created_at}
+      <br/>By <a href={"/users/" + topic.user_id}>{topic.user.email}</a></li>
     })
 
 
@@ -40,7 +41,7 @@ class ChampionInfo extends Component {
               </TabList>
               <TabPanel>
                 <div className ="infoContainer">
-                  <ul>
+                  <ul className ="topicList">
                   {topics}
                   </ul>
                   <a href={"/champions/" + this.props.id}>See All</a>

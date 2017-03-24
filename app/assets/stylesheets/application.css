@@ -224,6 +224,19 @@ input[type="submit"] {
   border-style: solid;
 }
 
+.indexTopic {
+  border-style: solid;
+  border-width: thin;
+  border-color: white;
+  margin-bottom: 3px;
+  padding: 3px;
+}
+
+.topicList {
+  padding: 0;
+  margin: 0;
+}
+
 .topic {
   margin-top: 10px;
   background-color: black;
