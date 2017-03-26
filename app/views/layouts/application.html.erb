@@ -34,36 +34,39 @@
   <body>
 
       <div class="top-bar stacked-for-small" id="topbar-menu">
-        <div class="top-bar-title">
-          <a class="hide-for-small-only" href="/">LeagueHQ</a>
-        </div>
-
 
         <div class="top-bar-left">
-          <form id="live-search" action="" class="search-bar">
-              <fieldset>
-                  <input type="text" class="text-input" id="filter" value="" placeholder="Search"/>
-              </fieldset>
-          </form>
-        </div>
+          <ul class="menu">
+            <li><a href="/" class="site-title">LeagueHQ</a></li>
 
-        <div class="top-bar-switch" title="Turn off live themes(For slow connections)">
-          <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch" checked>
-          <label class="switch-paddle" for="exampleSwitch">
-            <span class="switch-active" aria-hidden="true">On</span>
-            <span class="switch-inactive" aria-hidden="true">Off</span>
-          </label>
+            <li class="menu-text" title="Turn off live themes (For slow connections)">
+              <input class="switch-input" id="exampleSwitch" type="checkbox" name="exampleSwitch" checked>
+              <label class="switch-paddle" for="exampleSwitch">
+                <span class="switch-active" aria-hidden="true">On</span>
+                <span class="switch-inactive" aria-hidden="true">Off</span>
+              </label>
+            </li>
+
+            <li class="menu-text">
+              <form id="live-search" action="" class="search-bar">
+                  <fieldset>
+                      <input type="text" class="text-input" id="filter" value="" placeholder="Search"/>
+                  </fieldset>
+              </form>
+            </li>
+
+          </ul>
         </div>
 
         <div class="top-bar-right">
           <% if user_signed_in? %>
           <ul class="dropdown menu" data-dropdown-menu>
-            <li>
+            <li class="menu-text">
               <%= link_to current_user.email, user_path(current_user.id) %>
               <ul class="menu">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-                </ul>
+              </ul>
               </li>
             </ul>
 

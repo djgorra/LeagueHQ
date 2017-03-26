@@ -84,7 +84,7 @@ class App extends React.Component {
             />
           </ul>
         </div>
-        <div className = "columns show-for-medium-up medium-6">
+        <div className = "columns hide-for-small-only medium-6">
           <Sticky topOffset={0}>
               {showChampion}
           </Sticky>
