@@ -12,6 +12,7 @@ gem 'httparty'
 gem 'react-rails', '~> 1.0'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'figaro'
+gem "recaptcha", require: "recaptcha/rails"
 
 
 group :development do

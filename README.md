@@ -16,7 +16,7 @@
 
  Current to-do list:
  * ~~Admin features~~
- * Google recaptcha on sign-up
+ * ~~Google recaptcha on sign-up~~
  * Personal and character win rates
  * React animations
  * Begin moving away from relying on Rails views (React Router?)
