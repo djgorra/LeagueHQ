@@ -12,7 +12,7 @@
 * Uses Ruby 2.2.5
 
 
- LeagueHQ is both a message board where League of Legends players can chat with each other about their favorite characters, and a hub for all of the data provided by the API about the game. This includes static data such as each character's abilities, their backstories and their in-game statistics, as well as dynamic data such as detailed information about a user's matches.
+ LeagueHQ is both a message board where League of Legends players can chat with each other about their favorite characters, and a hub for all of the data provided by the Riot API. This includes static data such as each character's abilities, their backstories and their in-game statistics, as well as dynamic data such as detailed information about a user's recently played games. This data is displayed asynchronously using the Rails backend as an API sending data to the React homepage. Each time a character or recent game is clicked it makes a request returning data for that specific item, thus allowing me to have a large amount of data on one page as efficiently as possible.
 
  Current to-do list:
  * ~~Admin features~~
