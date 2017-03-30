@@ -1,8 +1,8 @@
 class MatchesController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user
 
-    url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=30&api_key=#{ENV["api-key"]}"
+    url = "https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/#{@user.riot_id}?beginIndex=0&endIndex=20&api_key=#{ENV["api-key"]}"
     response = HTTParty.get(url)
 
     response["matches"].each do |match|
@@ -13,13 +13,13 @@ class MatchesController < ApplicationController
          champion_id: match["champion"],
 
          champion: Champion.where(riot_id: match["champion"])[0].key,
-         gamemode: match["queue"],
+         gamemode: match["queue"].humanize,
          lane: match["lane"],
-         season: match["season"],
+         season: match["season"].humanize,
          date: Date.strptime((match["timestamp"]/1000).to_s, '%s'))
       end
     end
-    redirect_to user_path(@user)
+    render json: @user.matches.as_json
   end
 
   def show

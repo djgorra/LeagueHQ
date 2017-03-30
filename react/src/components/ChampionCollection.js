@@ -22,12 +22,6 @@ class ChampionCollection extends Component {
             name = {champion.name}
             key = {champion.key}
             img = {champion.img}
-            lore = {champion.lore}
-            skins = {champion.skins}
-            abilities = {champion.abilities}
-            attack = {champion.attack}
-            defense = {champion.defense}
-            magic = {champion.magic}
 
             className = {champion.name}
             handleChampionSelect = {handleChampionSelect}

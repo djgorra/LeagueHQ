@@ -97,6 +97,22 @@ body {
 
 }
 
+.match-container {
+  line-height: 10px;
+  border-style: solid;
+  border-color: white;
+  background-color: black;
+  opacity: 0.8;
+  min-width: 273px;
+  padding: 2px;
+  margin: 1px;
+}
+
+.match-list li {
+  display: inline-block;
+  height: 93px;
+}
+
 
 .menu {
   background-color: black;
@@ -113,20 +129,6 @@ body {
 .tabs-panel {
   overflow-y: scroll;
   min-height: 300px;
-}
-
-.skin .hover-text {
-  position:relative;
-  bottom:30px;
-  left:0;
-  visibility:hidden;
-}
-.skin:hover .hover-text {
-  visibility:visible;
-}
-
-.accordion-content-right {
-  height: 400px;
 }
 
 .footer p {
