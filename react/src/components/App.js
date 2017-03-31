@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ChampionCollection from './ChampionCollection';
 import ChampionInfo from './ChampionInfo';
 import MatchCollection from './MatchCollection';
+import MatchInfo from './MatchInfo';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -12,12 +13,13 @@ class App extends React.Component {
     this.state = {
       champions: [],
       selectedChampionInfo: null,
-      selectedChampionId: null,
       currentUserId: null,
       currentUserRiotId: null,
-      userMatches: null
+      userMatches: null,
+      selectedMatchInfo: null
     };
     this.handleChampionSelect = this.handleChampionSelect.bind(this);
+    this.handleMatchSelect = this.handleMatchSelect.bind(this);
     this.recentGamesSelect = this.recentGamesSelect.bind(this);
     this.currentGameSelect = this.currentGameSelect.bind(this);
 
@@ -48,29 +50,30 @@ class App extends React.Component {
     console.log(this.state);
   }
 
-  handleChampionSelect(id, key) {
-    this.setState({
-      selectedChampionId: id
-    });
+  handleMatchSelect(id, key) {
     backgroundChanger(key)
-
-    $.ajax({
-      url: `/champions/${id}/info`,
-      contentType: 'application/json'
-      })
-      .done(data => {
-
+    $.get(`/users/${this.state.currentUserId}/matches/${id}`).done(data => {
           this.setState({
-            selectedChampionInfo: data
+            selectedChampionInfo: null,
+            selectedMatchInfo: data
           });
-      });
+        });
   }
 
-  render() {
-    let showChampion;
+  handleChampionSelect(id, key) {
+    backgroundChanger(key)
+    $.get(`/champions/${id}/info`).done(data => {
+          this.setState({
+            selectedMatchinfo: null,
+            selectedChampionInfo: data
+          });
+        });
+    }
 
+  render() {
+    let showInfo;
     if (this.state.selectedChampionInfo !== null) {
-      showChampion =
+      showInfo =
       <ChampionInfo
         id = {this.state.selectedChampionInfo.id}
         name = {this.state.selectedChampionInfo.name}
@@ -85,6 +88,12 @@ class App extends React.Component {
         abilities = {this.state.selectedChampionInfo.abilities}
         img = {this.state.selectedChampionInfo.image}
         />
+    } else if (this.state.selectedMatchInfo !== null) {
+      showInfo =
+      <MatchInfo
+      winners = {this.state.selectedMatchInfo.winners}
+      losers = {this.state.selectedMatchInfo.losers}
+      />
     }
 
     return (
@@ -92,7 +101,7 @@ class App extends React.Component {
         <div className = "App row">
 
           <div className = "columns show-for-small-only small-12">
-              {showChampion}
+              {showInfo}
           </div>
 
           <div className = "column small-12 medium-6">
@@ -115,6 +124,7 @@ class App extends React.Component {
                 <MatchCollection
                   userMatches = {this.state.userMatches}
                   currentUserId = {this.state.currentUserId}
+                  handleMatchSelect = {this.handleMatchSelect}
                   />
               </TabPanel>
               <TabPanel>
@@ -124,7 +134,7 @@ class App extends React.Component {
           </div>
           <div className = "columns hide-for-small-only medium-6">
             <Sticky topOffset={0}>
-                {showChampion}
+                {showInfo}
             </Sticky>
           </div>
         </div>

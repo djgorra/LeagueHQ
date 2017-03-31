@@ -73,6 +73,7 @@ class MatchesController < ApplicationController
     end
     @winners = @match.players.where(won: true).order(:lane)
     @losers = @match.players.where(won: false).order(:lane)
+    render json: {:winners => @winners.as_json, :losers => @losers.as_json}
   end
 
 end

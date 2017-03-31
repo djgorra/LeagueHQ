@@ -10,13 +10,12 @@ class MatchCollection extends Component {
   }
 
   render() {
-
     let matches;
     if (this.props.currentUserId !== null) {
       matches = this.props.userMatches.map(match => {
 
       let handleMatchSelect = () => {
-        this.props.handleMatchSelect(match.riot_id, match.champion);
+        this.props.handleMatchSelect(match.id, match.champion);
         this.forceUpdate();
         };
       return(
@@ -30,6 +29,7 @@ class MatchCollection extends Component {
           className = {match.riot_id}
           key = {match.id}
           handleMatchSelect = {handleMatchSelect}
+          currentUserId = {this.props.currentUserId}
         />
       )
     })
