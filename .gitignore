@@ -17,6 +17,7 @@
 .byebug_history
 /node_modules
 /app/assets/javascripts/bundle.js
+/public/assets
 
 # Ignore application configuration
 /config/application.yml
