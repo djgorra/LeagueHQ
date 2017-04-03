@@ -10,8 +10,8 @@ class MatchCollection extends Component {
   }
 
   render() {
-    let matches;
     if (this.props.currentUserId !== null) {
+    let matches;
       matches = this.props.userMatches.map(match => {
 
       let handleMatchSelect = () => {
@@ -33,11 +33,15 @@ class MatchCollection extends Component {
         />
       )
     })
-  }
     return(
       <ul className="match-list">{matches}</ul>
     )
+  } else {
+    return(
+      <p>Please sign in to a LeagueHQ account with a valid Riot username to view your match history.</p>
+    )
   }
+}
 
 
 }

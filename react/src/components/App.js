@@ -15,7 +15,7 @@ class App extends React.Component {
       selectedChampionInfo: null,
       currentUserId: null,
       currentUserRiotId: null,
-      userMatches: null,
+      userMatches: [],
       selectedMatchInfo: null
     };
     this.handleChampionSelect = this.handleChampionSelect.bind(this);
@@ -70,6 +70,10 @@ class App extends React.Component {
         });
     }
 
+    addDefaultSrc(ev){
+      ev.src = 'http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/3637.png'
+    }
+
   render() {
     let showInfo;
     if (this.state.selectedChampionInfo !== null) {
@@ -93,6 +97,7 @@ class App extends React.Component {
       <MatchInfo
       winners = {this.state.selectedMatchInfo.winners}
       losers = {this.state.selectedMatchInfo.losers}
+      addDefaultSrc = {this.addDefaultSrc}
       />
     }
 

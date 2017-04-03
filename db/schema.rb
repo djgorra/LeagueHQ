@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313224202) do
+ActiveRecord::Schema.define(version: 20170401200125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 20170313224202) do
     t.integer "defense"
     t.integer "magic"
     t.integer "difficulty"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string  "url",       null: false
+    t.integer "player_id", null: false
+    t.index ["player_id"], name: "index_items_on_player_id", using: :btree
   end
 
   create_table "matches", force: :cascade do |t|
@@ -89,13 +95,13 @@ ActiveRecord::Schema.define(version: 20170313224202) do
     t.integer "minions_killed",    null: false
     t.integer "largest_multikill", null: false
     t.integer "wards_placed",      null: false
-    t.integer "item_0"
-    t.integer "item_1"
-    t.integer "item_2"
-    t.integer "item_3"
-    t.integer "item_4"
-    t.integer "item_5"
-    t.integer "item_6"
+    t.string  "item_0"
+    t.string  "item_1"
+    t.string  "item_2"
+    t.string  "item_3"
+    t.string  "item_4"
+    t.string  "item_5"
+    t.string  "item_6"
     t.integer "match_id",          null: false
     t.integer "user_id"
     t.index ["match_id"], name: "index_players_on_match_id", using: :btree

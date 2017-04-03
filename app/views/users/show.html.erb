@@ -21,7 +21,6 @@
     <ul class="tabs" data-tabs id="user-tabs">
       <li class="tabs-title is-active"><a href="#topics-panel" aria-selected="true">Topics</a></li>
       <li class="tabs-title"><a href="#comments-panel">Comments</a></li>
-      <li class="tabs-title"><a href="#matches-panel">Matches</a></li>
     </ul>
 
     <div class="tabs-panel is-active" id="topics-panel">
@@ -49,36 +48,5 @@
       <% end %>
     </div>
 
-    <div class="tabs-panel" id="matches-panel">
-      <% if @user.matches.exists? %>
-        <%= button_to "Update Matches", new_user_match_path(@user), method: :get %>
-        </br>
-        <% @user.matches.sort{|a,b| b.date <=> a.date}.each do |match| %>
-          <a class="card-container" href="<%= match.user.id %>/matches/<%= match.id %>" style="background-image: url(http://ddragon.leagueoflegends.com/cdn/7.2.1/img/champion/<%=match.champion%>.png)">
-            <div class="card">
-              <div class="card-divider">
-                <% unless match.gamemode.humanize.chomp(" sr").chomp("5x5").length < 12 %>
-                  <h6><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h6>
-                <% else %>
-                  </br>
-                  <h6><%= match.gamemode.humanize.chomp(" sr").chomp("5x5") %></h6>
-                <% end %>
-              </div>
-              <div class="card-section">
-                </br>
-                </br>
-                <small><%= match.date %></small>
-              </div>
-            </div>
-          </a>
-        <% end %>
-      <% elsif @user.riot_username == "" || @user.riot_username == nil %>
-      <p>Please add your Riot username to your LeagueHQ account on the Edit Profile page to view your match history.</p>
-      <% else %>
-        <%= button_to "Get Matches", new_user_match_path(@user), method: :get %>
-      <% end %>
-    </div>
-
-
-    </div>
   </div>
+</div>

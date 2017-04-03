@@ -181,9 +181,6 @@ input[type="submit"] {
 }
 
 .winners {
-  background-color: green;
-  background-color: rgba(46, 222, 11, 0.2);
-  border-radius: 10px;
   text-shadow:
               -1px -1px 0 #000,
               1px -1px 0 #000,
@@ -308,8 +305,12 @@ input[type="submit"] {
   height: 200px;
 }
 
-.player-section {
-  text-align: center;
+.item-list {
+  position: absolute;
+  left: 170px;
+}
+.item-list li {
+  display: inline-block;
 }
 
 .player-header {
