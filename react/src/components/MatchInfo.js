@@ -7,7 +7,7 @@ class MatchInfo extends Component {
 
     };
   }
-  debugger;
+  
   render(){
 
     let winners = this.props.winners.map(function(player){
