@@ -36,12 +36,6 @@ ActiveRecord::Schema.define(version: 20170401200125) do
     t.integer "difficulty"
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string  "url",       null: false
-    t.integer "player_id", null: false
-    t.index ["player_id"], name: "index_items_on_player_id", using: :btree
-  end
-
   create_table "matches", force: :cascade do |t|
     t.string  "match_id",    null: false
     t.integer "champion_id", null: false
