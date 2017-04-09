@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
     resources :info, only: [:index]
   end
-  resources :users, only: [:show] do
-    resources :matches
-  end
+  resources :users, only: [:show]
+  resources :matches
+  resources :match_list, only: [:show]
 end

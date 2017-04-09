@@ -5,36 +5,36 @@ class MatchCollection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
   render() {
-    if (this.props.currentUserId !== null) {
+    if (this.props.username !== null) {
     let matches;
       matches = this.props.userMatches.map(match => {
 
       let handleMatchSelect = () => {
-        this.props.handleMatchSelect(match.id, match.champion);
+        this.props.handleMatchSelect(match.matchId, match.champion.key);
         this.forceUpdate();
         };
       return(
         <Match
-          id = {match.id}
-          champion = {match.champion}
+          id = {match.matchId}
+          champion = {match.champion.name}
+          championKey = {match.champion.key}
           gamemode = {match.gamemode}
           lane = {match.lane}
           season = {match.season}
           date = {match.date}
-          className = {match.riot_id}
-          key = {match.id}
+          className = {match.matchId}
+          key = {match.matchId}
           handleMatchSelect = {handleMatchSelect}
-          currentUserId = {this.props.currentUserId}
         />
       )
     })
     return(
-      <ul className="match-list">{matches}</ul>
+      <ul className="match-list">
+      {matches}</ul>
     )
   } else {
     return(

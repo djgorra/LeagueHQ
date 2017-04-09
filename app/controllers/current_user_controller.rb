@@ -1,7 +1,7 @@
 class CurrentUserController < ApplicationController
   def index
     if user_signed_in?
-      render json: {id: current_user.id, riot_id: current_user.riot_id}
+      render json: {id: current_user.id, username: current_user.riot_username}
     else
       render json: {id: nil, riot_id: nil}
     end

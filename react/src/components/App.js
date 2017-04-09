@@ -14,16 +14,17 @@ class App extends React.Component {
       champions: [],
       selectedChampionInfo: null,
       currentUserId: null,
-      currentUserRiotId: null,
+      username: null,
       userMatches: [],
       selectedMatchInfo: null
     };
     this.handleChampionSelect = this.handleChampionSelect.bind(this);
     this.handleMatchSelect = this.handleMatchSelect.bind(this);
-    this.recentGamesSelect = this.recentGamesSelect.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.currentGameSelect = this.currentGameSelect.bind(this);
-
   }
+
     componentWillMount() {
       $.get("/champions/").done(data => {
             this.setState({
@@ -33,17 +34,23 @@ class App extends React.Component {
       $.get("/current_user").done(data => {
             this.setState({
               currentUserId: data["id"],
-              currentUserRiotId: data["riot_id"]
+              username: data["username"]
             });
         });
       }
 
-  recentGamesSelect() {
-    $.get(`/users/${this.state.currentUserId}/matches/new`).done(data => {
-          this.setState({
-            userMatches: data
-          });
+  handleChange(event) {
+    this.setState({username: event.target.value})
+  }
+
+  handleSubmit(event) {
+    console.log(this.state.username)
+    $.get(`/match_list/${this.state.username}`).done(data => {
+      this.setState({
+        userMatches: data
       });
+    });
+    event.preventDefault();
   }
 
   currentGameSelect() {
@@ -52,7 +59,7 @@ class App extends React.Component {
 
   handleMatchSelect(id, key) {
     backgroundChanger(key)
-    $.get(`/users/${this.state.currentUserId}/matches/${id}`).done(data => {
+    $.get(`/matches/${id}`).done(data => {
           this.setState({
             selectedChampionInfo: null,
             selectedMatchInfo: data
@@ -95,8 +102,7 @@ class App extends React.Component {
     } else if (this.state.selectedMatchInfo !== null) {
       showInfo =
       <MatchInfo
-      winners = {this.state.selectedMatchInfo.winners}
-      losers = {this.state.selectedMatchInfo.losers}
+      data = {this.state.selectedMatchInfo}
       addDefaultSrc = {this.addDefaultSrc}
       />
     }
@@ -113,7 +119,7 @@ class App extends React.Component {
             <Tabs>
               <TabList>
                <Tab>Champions</Tab>
-               <Tab onClick={this.recentGamesSelect}>Recent Games</Tab>
+               <Tab>Recent Games</Tab>
                <Tab onClick={this.currentGameSelect}>Current Game</Tab>
               </TabList>
               <TabPanel>
@@ -126,9 +132,13 @@ class App extends React.Component {
               </ul>
               </TabPanel>
               <TabPanel>
+                <form onSubmit={this.handleSubmit}>
+                  <input type="text" onChange={this.handleChange}/>
+                </form>
                 <MatchCollection
                   userMatches = {this.state.userMatches}
-                  currentUserId = {this.state.currentUserId}
+                  username = {this.state.username}
+                  handleSubmit = {this.handleSubmit}
                   handleMatchSelect = {this.handleMatchSelect}
                   />
               </TabPanel>
