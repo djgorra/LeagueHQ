@@ -22,10 +22,10 @@ class MatchCollection extends Component {
           id = {match.matchId}
           champion = {match.champion.name}
           championKey = {match.champion.key}
-          gamemode = {match.gamemode}
+          queue = {match.queue}
           lane = {match.lane}
           season = {match.season}
-          date = {match.date}
+          date = {match.timestamp}
           className = {match.matchId}
           key = {match.matchId}
           handleMatchSelect = {handleMatchSelect}

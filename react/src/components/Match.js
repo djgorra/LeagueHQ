@@ -22,7 +22,7 @@ class Match extends Component{
           <div className="media-object-section main-section">
             <h6>{this.props.champion}</h6>
             <small>{this.props.lane}</small><br/>
-            <small>{this.props.gamemode}</small><br/>
+            <small>{this.props.queue}</small><br/>
             <small>{this.props.season}</small><br/>
             <small>{this.props.date}</small><br/>
           </div>
