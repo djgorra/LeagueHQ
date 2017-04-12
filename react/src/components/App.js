@@ -13,7 +13,6 @@ class App extends React.Component {
     this.state = {
       champions: [],
       selectedChampionInfo: null,
-      currentUserId: null,
       username: null,
       userMatches: [],
       selectedMatchInfo: null
@@ -33,18 +32,16 @@ class App extends React.Component {
         });
       $.get("/current_user").done(data => {
             this.setState({
-              currentUserId: data["id"],
-              username: data["username"]
+              username: data.username
             });
         });
       }
 
   handleChange(event) {
-    this.setState({username: event.target.value})
+    this.setState({username: event.target.value});
   }
 
   handleSubmit(event) {
-    console.log(this.state.username)
     $.get(`/match_list/${this.state.username}`).done(data => {
       this.setState({
         userMatches: data
@@ -55,10 +52,11 @@ class App extends React.Component {
 
   currentGameSelect() {
     console.log(this.state);
+    //WIP
   }
 
   handleMatchSelect(id, key) {
-    backgroundChanger(key)
+    backgroundChanger(key);
     $.get(`/matches/${id}`).done(data => {
           this.setState({
             selectedChampionInfo: null,
@@ -68,17 +66,13 @@ class App extends React.Component {
   }
 
   handleChampionSelect(id, key) {
-    backgroundChanger(key)
+    backgroundChanger(key);
     $.get(`/champions/${id}/info`).done(data => {
           this.setState({
             selectedMatchinfo: null,
             selectedChampionInfo: data
           });
         });
-    }
-
-    addDefaultSrc(ev){
-      ev.src = 'http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/3637.png'
     }
 
   render() {
@@ -117,34 +111,38 @@ class App extends React.Component {
 
           <div className = "column small-12 medium-6">
             <Tabs>
+
               <TabList>
                <Tab>Champions</Tab>
-               <Tab>Recent Games</Tab>
+               <Tab onClick={this.handleSubmit}>Recent Games</Tab>
                <Tab onClick={this.currentGameSelect}>Current Game</Tab>
               </TabList>
+
               <TabPanel>
-              <ul className = "champion-list">
-                <ChampionCollection
-                  champions= {this.state.champions}
-                  selectedChampionId = {this.state.selectedChampionId}
-                  handleChampionSelect= {this.handleChampionSelect}
-                />
-              </ul>
+                <ul className = "champion-list">
+                  <ChampionCollection
+                    champions= {this.state.champions}
+                    selectedChampionId = {this.state.selectedChampionId}
+                    handleChampionSelect= {this.handleChampionSelect}
+                  />
+                </ul>
               </TabPanel>
+
               <TabPanel>
                 <form onSubmit={this.handleSubmit}>
-                  <input type="text" onChange={this.handleChange}/>
+                  <input type="text" placeholder="Search Summoners" onChange={this.handleChange}/>
                 </form>
                 <MatchCollection
                   userMatches = {this.state.userMatches}
                   username = {this.state.username}
-                  handleSubmit = {this.handleSubmit}
                   handleMatchSelect = {this.handleMatchSelect}
                   />
               </TabPanel>
+
               <TabPanel>
               <h1>Current game will go here</h1>
               </TabPanel>
+
             </Tabs>
           </div>
           <div className = "columns hide-for-small-only medium-6">
