@@ -9,44 +9,43 @@ class MatchInfo extends Component {
   }
 
   render(){
-
-    let participants = this.props.participants.map(function(player){
+    let participants = this.props.data.participants.map(function(player){
 
       let divStyle = {
-        backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${player.champion}_0.jpg)`,
+        backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${player.championId.key}_0.jpg)`,
         backgroundSize: 'cover'
       }
 
-      return <li key={player.id} className="winners">
+      return <li key={player.participantId.summonerId} className="winners">
         <div className="media-object" style={divStyle}>
 
           <div className="media-object-section small-4">
-          <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/7.6.1/img/profileicon/" + player.icon_id + ".png"} />
-            <h5>{player.name}</h5>
-            <p>{player.kills}/{player.deaths}/{player.assists}</p>
-            <p>Level {player.level}</p>
-            <p>Minions killed: {player.minions_killed}</p>
+          <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/7.6.1/img/profileicon/" + player.participantId.profileIcon + ".png"} />
+            <h5>{player.participantId.summonerName}</h5>
+            <p>{player.stats.kills}/{player.stats.deaths}/{player.stats.assists}</p>
+            <p>Level {player.stats.champLevel}</p>
+            <p>Minions killed: {player.stats.minionsKilled}</p>
           </div>
 
           <div className="media-object-section small-5">
             <ul className="item-list">
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_0}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_1}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_2}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_3}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_4}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_5}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.item_6}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item0}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item1}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item2}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item3}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item4}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item5}.png`} /></li>
+              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item6}.png`} /></li>
             </ul><br/>
-            <p>Towers destroyed: {player.tower_kills}</p>
-            <p>Best multikill: {player.largest_multikill}</p>
-            <p>Wards placed: {player.wards_placed}</p>
+            <p>Towers destroyed: {player.stats.towerKills}</p>
+            <p>Best multikill: {player.stats.largestMultiKill}</p>
+            <p>Wards placed: {player.stats.wardsPlaced}</p>
           </div>
 
           <div className="media-object-section small-3">
-            <p>Damage dealt: {player.damage_dealt}</p>
-            <p>Damage taken: {player.damage_taken}</p>
-            <p>Healing done: {player.healing_done}</p>
+            <p>Damage dealt: {player.stats.totalDamageDealt}</p>
+            <p>Damage taken: {player.stats.totalDamageTaken}</p>
+            <p>Healing done: {player.stats.totalHeal}</p>
           </div>
         </div>
       </li>;
