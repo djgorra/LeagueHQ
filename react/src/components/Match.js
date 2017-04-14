@@ -10,7 +10,7 @@ class Match extends Component{
 
   render() {
     return(
-      <li className="match-container" onClick={this.props.handleMatchSelect}>
+      <li className="match-container match-icon" onClick={this.props.handleMatchSelect}>
         <div className="media-object">
 
           <div className="media-object-section">

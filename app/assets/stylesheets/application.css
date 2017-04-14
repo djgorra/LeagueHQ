@@ -113,6 +113,11 @@ body {
   height: 93px;
 }
 
+.match-icon:hover {
+  background-color: white;
+  color: black;
+}
+
 
 .menu {
   background-color: black;
