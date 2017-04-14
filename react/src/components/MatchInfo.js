@@ -7,18 +7,9 @@ class MatchInfo extends Component {
 
     };
   }
-  replaceZeros(player) {
-    for (var i = 0; i < 7; i++) {
-      if (player.stats[`item${i}`] == 0) {
-        player.stats[`item${i}`] = 3637
-      }
-    }
-  }
 
   render(){
     let winners = this.props.data.winners.map(function(player){
-
-      replaceZeros(player);
 
       for (var i = 0; i < 7; i++) {
         if (player.stats[`item${i}`] == 0) {
@@ -68,7 +59,11 @@ class MatchInfo extends Component {
 
     let losers = this.props.data.losers.map(function(player){
 
-      replaceZeros(player);
+      for (var i = 0; i < 7; i++) {
+        if (player.stats[`item${i}`] === 0) {
+          player.stats[`item${i}`] = 3637;
+        }
+      }
 
       let divStyle = {
         backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${player.championId.key}_0.jpg)`,
