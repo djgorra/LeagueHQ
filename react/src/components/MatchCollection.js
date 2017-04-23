@@ -9,9 +9,21 @@ class MatchCollection extends Component {
   }
 
   render() {
-    if (this.props.username !== null) {
-    let matches;
-      matches = this.props.userMatches.map(match => {
+    // Waits until a username is entered to do anything
+    if (this.props.username !== undefined) {
+
+    // If the data retrieved is an error, returns the code/message
+      if (this.props.userMatches.status_code) {
+        return(
+          <div className="error small-8">
+          <h3>Error {this.props.userMatches.status_code}</h3>
+          <p>{this.props.userMatches.message}</p>
+          <img src="http://i.imgur.com/yejk9lX.jpg" />
+          </div>
+        )
+      // Else iterates through each match and returns a list of them
+      }else{
+    let matches = this.props.userMatches.map(match => {
 
       let handleMatchSelect = () => {
         this.props.handleMatchSelect(match.matchId, match.champion.key);
@@ -36,9 +48,11 @@ class MatchCollection extends Component {
       <ul className="match-list">
       {matches}</ul>
     )
+  }
+  // If there is no username, returns nothing.
   } else {
     return(
-      <p>Please sign in to a LeagueHQ account with a valid Riot username to view your match history.</p>
+      <p></p>
     )
   }
 }

@@ -45,11 +45,13 @@ class App extends React.Component {
 
   //Uses the altered state to trigger a call to the LeagueHQ API with the entered name
   handleSubmit(event) {
+    if (this.state.username !== undefined) {
     $.get(`/match_list/${this.state.username}`).done(data => {
       this.setState({
         userMatches: data
       });
     });
+    }
     event.preventDefault();
   }
 
@@ -143,6 +145,7 @@ class App extends React.Component {
                   userMatches = {this.state.userMatches}
                   username = {this.state.username}
                   handleMatchSelect = {this.handleMatchSelect}
+                  selectedMatchInfo = {this.selectedMatchInfo}
                   />
               </TabPanel>
 

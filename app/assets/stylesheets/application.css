@@ -108,14 +108,25 @@ body {
   margin: 1px;
 }
 
+.match-container:hover {
+  background-color: white;
+  color: black;
+}
+
 .match-list li {
   display: inline-block;
   height: 93px;
 }
 
-.match-icon:hover {
+.selected {
   background-color: white;
   color: black;
+}
+
+.error {
+  background-color: black;
+  opacity: 0.8;
+  padding: 5px;
 }
 
 

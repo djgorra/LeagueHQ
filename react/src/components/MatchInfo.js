@@ -9,8 +9,19 @@ class MatchInfo extends Component {
   }
 
   render(){
+    if (this.props.data.status_code){
+      return (
+        <div className="error small-8">
+          <h3>Error {this.props.data.status_code}</h3>
+          <p>{this.props.data.message}</p>
+          <img src="http://i.imgur.com/yejk9lX.jpg" />
+        </div>
+      )
+    }else{
     let winners = this.props.data.winners.map(function(player){
 
+      //Replaces items that are 0 with the number for the empty item slot.
+      //Not sure why the empty item slot couldn't just be 0. Thanks Riot.
       for (var i = 0; i < 7; i++) {
         if (player.stats[`item${i}`] == 0) {
           player.stats[`item${i}`] = 3637
@@ -59,6 +70,8 @@ class MatchInfo extends Component {
 
     let losers = this.props.data.losers.map(function(player){
 
+
+      //Replaces items that are 0 with the number for the empty item slot.
       for (var i = 0; i < 7; i++) {
         if (player.stats[`item${i}`] === 0) {
           player.stats[`item${i}`] = 3637;
@@ -115,6 +128,7 @@ class MatchInfo extends Component {
         </ul>
       </div>
     );
+  }
   }
 }
 export default MatchInfo;
