@@ -2,6 +2,11 @@
 
 [![Code Climate](https://lima.codeclimate.com/github/djgorra/LeagueHQ/badges/gpa.svg)](https://lima.codeclimate.com/github/djgorra/LeagueHQ)
 
+Hosted on Heroku at <https://leaguehq.herokuapp.com/>
+
+![Screenshot1](http://i.imgur.com/B8ziEa4.jpg)
+![Screenshot2](http://i.imgur.com/fIRmdQY.jpg)
+
 ### Setting up locally
 1. Clone down the repo, then set up the database.
 `https://github.com/djgorra/LeagueHQ.git`

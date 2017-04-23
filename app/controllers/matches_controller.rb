@@ -5,6 +5,8 @@ class MatchesController < ApplicationController
     response = HTTParty.get(url)
     @winners = []
     @losers = []
+
+    #Iterates through each participant to modify them into a more usable format and sort them into two distinct teams
     response["participants"].each do |participant|
       @champion = Champion.find_by(riot_id: participant["championId"])
       participant["championId"] = {name: @champion.name, key: @champion.key}
@@ -15,6 +17,8 @@ class MatchesController < ApplicationController
         @losers << participant
       end
     end
+
+    #Deletes these now redundant sections of the data structure
     response.delete("participants")
     response.delete("participantIdentities")
 

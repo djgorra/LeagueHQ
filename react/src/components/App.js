@@ -24,6 +24,7 @@ class App extends React.Component {
     this.currentGameSelect = this.currentGameSelect.bind(this);
   }
 
+    //Upon pageload gets list of champions and current username
     componentWillMount() {
       $.get("/champions/").done(data => {
             this.setState({
@@ -37,10 +38,12 @@ class App extends React.Component {
         });
       }
 
+  //Alters state for every character entered into the React form
   handleChange(event) {
     this.setState({username: event.target.value});
   }
 
+  //Uses the altered state to trigger a call to the LeagueHQ API with the entered name
   handleSubmit(event) {
     $.get(`/match_list/${this.state.username}`).done(data => {
       this.setState({
@@ -55,6 +58,8 @@ class App extends React.Component {
     //WIP
   }
 
+  //Uses a match's Riot-given ID to make a request to the LeagueHQ API
+  //Sets the selectedMatchInfo state with the data returned and removes the selectedChampionInfo state to prevent overlap
   handleMatchSelect(id, key) {
     backgroundChanger(key);
     $.get(`/matches/${id}`).done(data => {
@@ -65,6 +70,8 @@ class App extends React.Component {
         });
   }
 
+  //Uses a champion's Riot-given ID to make a request to the LeagueHQ API
+  //Sets the selectedChampionInfo state with the data returned and removes the selectedMatchInfo state to prevent overlap
   handleChampionSelect(id, key) {
     backgroundChanger(key);
     $.get(`/champions/${id}/info`).done(data => {

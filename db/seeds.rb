@@ -2,6 +2,8 @@ User.create(email: ENV["admin_email"], password: ENV["admin_password"], is_admin
 
 url = "https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=all&api_key=#{ENV["api-key"]}"
 response = HTTParty.get(url)
+
+#Iterates through the response to create a champion object for each
 response["data"].sort.each do |champ|
   Champion.create!(name: champ[1]["name"],
    key: champ[1]["key"],

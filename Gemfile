@@ -14,6 +14,8 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'figaro'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'react-rails-img'
+gem 'foundation-rails'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 group :development do
@@ -22,7 +24,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -42,6 +43,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-
-gem "carrierwave"
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
