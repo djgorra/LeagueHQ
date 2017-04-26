@@ -128,6 +128,11 @@ class App extends React.Component {
               </TabList>
 
               <TabPanel>
+                <form id="live-search" action="" className="search-bar">
+                    <fieldset>
+                        <input type="text" className="text-input" id="filter" placeholder="Search Champions"/>
+                    </fieldset>
+                </form>
                 <ul className = "champion-list">
                   <ChampionCollection
                     champions= {this.state.champions}
