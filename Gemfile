@@ -39,6 +39,7 @@ group :test do
   gem 'coveralls', require: true
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 
 group :production do
