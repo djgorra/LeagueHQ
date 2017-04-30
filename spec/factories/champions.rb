@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :topic do
+  factory :champion do
     name "Wukong"
     key "MonkeyKing"
     riot_id 62
