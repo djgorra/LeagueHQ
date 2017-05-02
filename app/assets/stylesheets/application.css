@@ -43,9 +43,17 @@ body {
   opacity: 0.8;
 }
 
+.menu-text {
+
+}
+
 .login-partial {
-  margin-top: 30px;
-  margin-right: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.login-partial h3 {
+  text-align: center;
 }
 
 
@@ -168,7 +176,7 @@ body {
 input[type="submit"] {
   background-color: black;
   color: white;
-  padding: 2px;
+  padding: 4px;
 }
 
 .show-page {
