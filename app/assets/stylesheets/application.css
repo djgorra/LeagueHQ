@@ -29,6 +29,27 @@ body {
   opacity: 0.8
 }
 
+.top-bar-dropdown-item {
+  color: white;
+}
+
+.top-bar-dropdown-item:hover {
+  color: black;
+  background-color: white;
+}
+
+.top-bar-switch {
+  position: absolute;
+  top: 16px;
+  left: 200px;
+}
+.top-bar-button {
+  border-style: ridge;
+  border-color: white;
+  color: white;
+  border-radius: 10px;
+}
+
 .site-title {
   color: white;
   font-size: 35px;
@@ -41,21 +62,13 @@ body {
 .reveal {
   background-color: black;
   opacity: 0.8;
-}
-
-.menu-text {
-
+  height: 350px;
 }
 
 .login-partial {
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
-.login-partial h3 {
-  text-align: center;
-}
-
 
 .champion-list li {
   display: inline-block;
@@ -171,12 +184,18 @@ body {
   color: white;
   background-color: grey;
   background-color: rgba(10, 10, 10, 0.5);
+  height: 575px;
+}
+
+.form-buttons {
+  display: inline-block;
 }
 
 input[type="submit"] {
-  background-color: black;
+  background-color: #01456d;
   color: white;
-  padding: 4px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .show-page {

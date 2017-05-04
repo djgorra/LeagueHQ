@@ -18,24 +18,23 @@
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <sup>(<%= @minimum_password_length %> characters minimum)</sup>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %>
+      <%= f.label "Confirm password" %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
     <%= flash[:recaptcha_error] %>
     <%= recaptcha_tags site_key: ENV["RECAPTCHA_SITE_KEY"] %>
+    <br>
 
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
   <% end %>
-  <br>
-  <%= render "devise/shared/links" %>
   </div>
 </div>
