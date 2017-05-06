@@ -122,9 +122,9 @@ class App extends React.Component {
             <Tabs>
 
               <TabList>
-               <Tab>Champions</Tab>
-               <Tab onClick={this.handleSubmit}>Recent Games</Tab>
-               <Tab onClick={this.currentGameSelect}>Current Game</Tab>
+               <Tab className="tab">Champions</Tab>
+               <Tab className="tab" onClick={this.handleSubmit}>Recent Games</Tab>
+               <Tab className="tab" onClick={this.currentGameSelect}>Current Game</Tab>
               </TabList>
 
               <TabPanel>
