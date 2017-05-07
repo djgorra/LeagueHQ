@@ -38,6 +38,8 @@ class MatchInfo extends Component {
 
           <div className="media-object-section small-4">
             <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/7.6.1/img/profileicon/" + player.participantId.profileIcon + ".png"} />
+            <img className="summonerSpell" height="30" width="30" src={"assets/" + player.spell1Id + ".png"} />
+            <img className="summonerSpell" height="30" width="30" src={"assets/" + player.spell2Id + ".png"} />
             <h5>{player.participantId.summonerName}</h5>
             <p>{player.stats.kills}/{player.stats.deaths}/{player.stats.assists}</p>
             <p>Level {player.stats.champLevel}</p>
@@ -88,6 +90,8 @@ class MatchInfo extends Component {
 
           <div className="media-object-section small-4">
             <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/7.6.1/img/profileicon/" + player.participantId.profileIcon + ".png"} />
+            <img className="summonerSpell" height="30" width="30" src={"assets/" + player.spell1Id + ".png"} />
+            <img className="summonerSpell" height="30" width="30" src={"assets/" + player.spell2Id + ".png"} />
             <h5>{player.participantId.summonerName}</h5>
             <p>{player.stats.kills}/{player.stats.deaths}/{player.stats.assists}</p>
             <p>Level {player.stats.champLevel}</p>
