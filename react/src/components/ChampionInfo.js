@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Img from 'react-image'
 
 class ChampionInfo extends Component {
   constructor(props) {
@@ -10,21 +11,29 @@ class ChampionInfo extends Component {
   }
 
   render() {
+    let loader = <img src={"http://i.imgur.com/QwCBl6I.gif"}/>
     let lore = this.props.lore
     let keyy = this.props.keyy;
     let skins = this.props.skins.map(function(skin){
-      return <li key={skin.num}>  {skin.name}<img src={"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + keyy + "_" + skin.num + ".jpg"}/></li>;
+      return <li className="skinContainer" key={skin.num}><h2 className="skinName">{skin.name}</h2>
+      <Img className="skinImage" src={"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + keyy + "_" + skin.num + ".jpg"} loader={loader}/></li>;
     })
 
     let abilities = this.props.abilities.map(function(ability){
-      return <li key={ability.id}><img src={"http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/" + ability.image}/>{ability.name}<br/><small>{ability.description}</small></li>;
+      return <li key={ability.id}><Img src={"http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/" + ability.image} loader={loader}/>{ability.name}<br/><small>{ability.description}</small></li>;
 
     })
 
-    let topics = this.props.topics.slice(0, 10).map(function(topic){
-      return <li key={topic.id} className="indexTopic"><a href={"/champions/" + topic.champion_id + "/topics/" + topic.id}>{topic.title}</a>
-      <br/>Submitted on {topic.created_at}
-      <br/>By <a href={"/users/" + topic.user_id}>{topic.user.email}</a></li>
+    let topics = this.props.topics.map(function(topic){
+      if(topic.user.riot_username == ""){
+        return <li key={topic.id} className="indexTopic"><a href={"/champions/" + topic.champion_id + "/topics/" + topic.id}>{topic.title}</a>
+        <br/>Submitted on {topic.created_at}
+        <br/>By <a href={"/users/" + topic.user_id}>{topic.user.email}</a></li>
+      }else{
+        return <li key={topic.id} className="indexTopic"><a href={"/champions/" + topic.champion_id + "/topics/" + topic.id}>{topic.title}</a>
+        <br/>Submitted on {topic.created_at}
+        <br/>By <a href={"/users/" + topic.user_id}>{topic.user.riot_username}</a></li>
+      }
     })
 
 
@@ -34,10 +43,10 @@ class ChampionInfo extends Component {
             <h5>{this.props.title}</h5>
             <Tabs>
               <TabList>
-                <Tab>Recent Topics</Tab>
-                <Tab>Abilities</Tab>
-                <Tab>Lore</Tab>
-                <Tab>Skins</Tab>
+                <Tab className="tab">Recent Topics</Tab>
+                <Tab className="tab">Abilities</Tab>
+                <Tab className="tab">Lore</Tab>
+                <Tab className="tab">Skins</Tab>
               </TabList>
               <TabPanel>
                 <div className ="infoContainer">

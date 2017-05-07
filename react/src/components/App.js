@@ -89,14 +89,14 @@ class App extends React.Component {
     if (this.state.selectedChampionInfo !== null) {
       showInfo =
       <ChampionInfo
-        id = {this.state.selectedChampionInfo.id}
-        name = {this.state.selectedChampionInfo.name}
-        keyy = {this.state.selectedChampionInfo.key}
-        title = {this.state.selectedChampionInfo.title}
-        lore = {this.state.selectedChampionInfo.lore}
-        attack = {this.state.selectedChampionInfo.attack}
-        defense = {this.state.selectedChampionInfo.defense}
-        magic = {this.state.selectedChampionInfo.magic}
+        id = {this.state.selectedChampionInfo.champion.id}
+        name = {this.state.selectedChampionInfo.champion.name}
+        keyy = {this.state.selectedChampionInfo.champion.key}
+        title = {this.state.selectedChampionInfo.champion.title}
+        lore = {this.state.selectedChampionInfo.champion.lore}
+        attack = {this.state.selectedChampionInfo.champion.attack}
+        defense = {this.state.selectedChampionInfo.champion.defense}
+        magic = {this.state.selectedChampionInfo.champion.magic}
         skins = {this.state.selectedChampionInfo.skins}
         topics = {this.state.selectedChampionInfo.topics}
         abilities = {this.state.selectedChampionInfo.abilities}

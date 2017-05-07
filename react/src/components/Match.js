@@ -21,11 +21,12 @@ class Match extends Component{
           </div>
 
           <div className="media-object-section main-section">
-            <h6>{this.props.champion}</h6>
-            <small>{this.props.lane}</small><br/>
-            <small>{this.props.queue}</small><br/>
-            <small>{this.props.season}</small><br/>
-            <small>{this.props.date}</small><br/>
+            <p className="match-info">{this.props.champion}<br/>
+               {this.props.lane}<br/>
+               {this.props.queue}<br/>
+               {this.props.season}<br/>
+               {this.props.date}<br/>
+               </p>
           </div>
 
         </div>

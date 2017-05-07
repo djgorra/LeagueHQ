@@ -16,9 +16,9 @@ class MatchCollection extends Component {
       if (this.props.userMatches.status_code) {
         return(
           <div className="error small-8">
-          <h3>Error {this.props.userMatches.status_code}</h3>
-          <p>{this.props.userMatches.message}</p>
-          <img src="http://i.imgur.com/yejk9lX.jpg" />
+            <h3>Error {this.props.userMatches.status_code}</h3>
+            <p>{this.props.userMatches.message}</p>
+            <img src="http://i.imgur.com/yejk9lX.jpg" />
           </div>
         )
       // Else iterates through each match and returns a list of them
