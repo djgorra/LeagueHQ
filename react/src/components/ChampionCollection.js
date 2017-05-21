@@ -5,17 +5,27 @@ class ChampionCollection extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      search: ""
     }
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
+    updateSearch(event) {
+      this.setState({search: event.target.value})
+    }
+
     render() {
-      let champions = this.props.champions.map(champion => {
+      let filteredChampions = this.props.champions.filter(
+        (champion) => {
+          return champion.name.toLowerCase().indexOf(this.state.search) !== -1;
+        }
+      )
+      let champions = filteredChampions.map(champion => {
 
         let handleChampionSelect = () => {
           this.props.handleChampionSelect(champion.id, champion.key);
           this.forceUpdate();
-          };
+        };
         return(
           <Champion
             id = {champion.id}
@@ -30,7 +40,12 @@ class ChampionCollection extends Component {
         )
       })
       return(
-        <ul>{champions}</ul>
+        <div>
+          <form>
+            <input type="text" className="text-input" onChange={this.updateSearch} placeholder="Search Champions"/>
+          </form>
+          <ul className="champion-list">{champions}</ul>
+        </div>
       )
     }
   }

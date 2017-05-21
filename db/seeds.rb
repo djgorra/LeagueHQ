@@ -6,7 +6,7 @@ response = HTTParty.get(url)
 #Iterates through the response to create a champion object for each
 response["data"].sort.each do |champ|
   Champion.create!(name: champ[1]["name"],
-   key: champ[1]["key"],
+   key: champ[1]["key"].titleize,
    riot_id: champ[1]["id"],
    title: champ[1]["title"],
    lore: champ[1]["lore"],

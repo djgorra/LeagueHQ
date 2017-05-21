@@ -15,7 +15,8 @@ class App extends React.Component {
       selectedChampionInfo: null,
       username: null,
       userMatches: [],
-      selectedMatchInfo: null
+      selectedMatchInfo: null,
+      userMastery: []
     };
     this.handleChampionSelect = this.handleChampionSelect.bind(this);
     this.handleMatchSelect = this.handleMatchSelect.bind(this);
@@ -84,6 +85,16 @@ class App extends React.Component {
         });
     }
 
+  masterySelect() {
+    if (this.state.username !== undefined) {
+    $.get(`/mastery_list/${this.state.username}`).done(data => {
+      this.setState({
+        userMastery: data
+      });
+    });
+  }
+}
+
   render() {
     let showInfo;
     if (this.state.selectedChampionInfo !== null) {
@@ -125,37 +136,34 @@ class App extends React.Component {
                <Tab className="tab">Champions</Tab>
                <Tab className="tab" onClick={this.handleSubmit}>Recent Games</Tab>
                <Tab className="tab" onClick={this.currentGameSelect}>Current Game</Tab>
+               <Tab className="tab" onClick={this.masterySelect}>Champion Mastery</Tab>
               </TabList>
 
               <TabPanel>
-                <form id="live-search" action="" className="search-bar">
-                    <fieldset>
-                        <input type="text" className="text-input" id="filter" placeholder="Search Champions"/>
-                    </fieldset>
-                </form>
-                <ul className = "champion-list">
-                  <ChampionCollection
-                    champions= {this.state.champions}
-                    selectedChampionId = {this.state.selectedChampionId}
-                    handleChampionSelect= {this.handleChampionSelect}
-                  />
-                </ul>
+                <ChampionCollection
+                  champions= {this.state.champions}
+                  selectedChampionId = {this.state.selectedChampionId}
+                  handleChampionSelect= {this.handleChampionSelect}
+                />
               </TabPanel>
 
               <TabPanel>
-                <form onSubmit={this.handleSubmit}>
-                  <input type="text" placeholder="Search Summoners" onChange={this.handleChange}/>
-                </form>
                 <MatchCollection
                   userMatches = {this.state.userMatches}
                   username = {this.state.username}
                   handleMatchSelect = {this.handleMatchSelect}
                   selectedMatchInfo = {this.selectedMatchInfo}
+                  handleChange = {this.handleChange}
+                  handleSubmit = {this.handleSubmit}
                   />
               </TabPanel>
 
               <TabPanel>
-              <h1>Current game will go here</h1>
+                <h1>Current game will go here</h1>
+              </TabPanel>
+
+              <TabPanel>
+
               </TabPanel>
 
             </Tabs>

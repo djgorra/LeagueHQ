@@ -21,26 +21,9 @@
 //foundation
 $(function(){ $(document).foundation(); });
 
-//live-search
-$(document).ready(function(){
-    $("#filter").keyup(function(){
-
-        var filter = $(this).val();
-        $(".icon-container").each(function(){
-            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                $(this).fadeOut();
-
-            } else {
-                $(this).show();
-            }
-        });
-    });
-});
-
 //background changer
 function backgroundChanger(champ) {
-
-  if (exampleSwitch.checked) {
+  if (bgcSwitch.checked) {
     var img = new Image();
     img.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ}_0.jpg`;
     img.onload = function () {

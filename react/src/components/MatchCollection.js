@@ -45,14 +45,22 @@ class MatchCollection extends Component {
       )
     })
     return(
-      <ul className="match-list">
-      {matches}</ul>
+      <div>
+        <form onSubmit={this.props.handleSubmit}>
+          <input type="text" placeholder="Search Summoners" onChange={this.props.handleChange}/>
+        </form>
+        <ul className="match-list">
+          {matches}
+        </ul>
+      </div>
     )
   }
   // If there is no username, returns nothing.
   } else {
     return(
-      <p></p>
+      <form onSubmit={this.props.handleSubmit}>
+        <input type="text" placeholder="Search Summoners" onChange={this.props.handleChange}/>
+      </form>
     )
   }
 }
