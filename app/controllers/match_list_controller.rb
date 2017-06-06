@@ -1,7 +1,7 @@
 class MatchListController < ApplicationController
   def show
     #Taking in Riot username as params and using it to retrieve Riot ID
-    url1 = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/#{params[:id]}?api_key=#{ENV["api-key"]}"
+    url1 = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/#{params[:id].tr(" ", "_")}?api_key=#{ENV["api-key"]}"
     response1 = HTTParty.get(url1)
 
     if response1["status"]
