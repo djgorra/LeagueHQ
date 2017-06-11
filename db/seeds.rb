@@ -1,4 +1,4 @@
-User.create!(email: ENV["admin_email"], password: ENV["admin_password"], riot_username: "", is_admin: true)
+User.create(email: ENV["admin_email"], password: ENV["admin_password"], riot_username: "", is_admin: true)
 
 version_url = "https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/versions?api_key=#{ENV["api-key"]}"
 version_response = HTTParty.get(version_url)
