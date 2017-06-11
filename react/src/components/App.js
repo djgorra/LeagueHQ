@@ -16,20 +16,21 @@ class App extends React.Component {
       username: null,
       userMatches: [],
       selectedMatchInfo: null,
-      userMastery: []
+      userMastery: [],
+      version: null
     };
     this.handleChampionSelect = this.handleChampionSelect.bind(this);
     this.handleMatchSelect = this.handleMatchSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.currentGameSelect = this.currentGameSelect.bind(this);
   }
 
     //Upon pageload gets list of champions and current username
     componentWillMount() {
       $.get("/champions/").done(data => {
             this.setState({
-              champions: data
+              champions: data.champions,
+              version: data.version
             });
         });
       $.get("/current_user").done(data => {
@@ -54,11 +55,6 @@ class App extends React.Component {
     });
     }
     event.preventDefault();
-  }
-
-  currentGameSelect() {
-    console.log(this.state);
-    //WIP
   }
 
   //Uses a match's Riot-given ID to make a request to the LeagueHQ API
@@ -100,6 +96,7 @@ class App extends React.Component {
     if (this.state.selectedChampionInfo !== null) {
       showInfo =
       <ChampionInfo
+        version = {this.state.version}
         id = {this.state.selectedChampionInfo.champion.id}
         name = {this.state.selectedChampionInfo.champion.name}
         keyy = {this.state.selectedChampionInfo.champion.key}
@@ -117,6 +114,7 @@ class App extends React.Component {
       showInfo =
       <MatchInfo
       data = {this.state.selectedMatchInfo}
+      version = {this.state.version}
       addDefaultSrc = {this.addDefaultSrc}
       />
     }
@@ -135,13 +133,12 @@ class App extends React.Component {
               <TabList>
                <Tab className="tab">Champions</Tab>
                <Tab className="tab" onClick={this.handleSubmit}>Recent Games</Tab>
-               <Tab className="tab" onClick={this.currentGameSelect}>Current Game</Tab>
-               <Tab className="tab" onClick={this.masterySelect}>Champion Mastery</Tab>
               </TabList>
 
               <TabPanel>
                 <ChampionCollection
                   champions= {this.state.champions}
+                  version= {this.state.version}
                   selectedChampionId = {this.state.selectedChampionId}
                   handleChampionSelect= {this.handleChampionSelect}
                 />
@@ -151,19 +148,12 @@ class App extends React.Component {
                 <MatchCollection
                   userMatches = {this.state.userMatches}
                   username = {this.state.username}
+                  version= {this.state.version}
                   handleMatchSelect = {this.handleMatchSelect}
                   selectedMatchInfo = {this.selectedMatchInfo}
                   handleChange = {this.handleChange}
                   handleSubmit = {this.handleSubmit}
                   />
-              </TabPanel>
-
-              <TabPanel>
-                <h1>Current game will go here</h1>
-              </TabPanel>
-
-              <TabPanel>
-
               </TabPanel>
 
             </Tabs>

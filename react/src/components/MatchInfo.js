@@ -18,7 +18,7 @@ class MatchInfo extends Component {
         </div>
       )
     }else{
-    let winners = this.props.data.winners.map(function(player){
+    let winners = this.props.data.winners.map((player) => {
 
       //Replaces items that are 0 with the number for the empty item slot.
       //Not sure why the empty item slot couldn't just be 0. Thanks Riot.
@@ -37,9 +37,9 @@ class MatchInfo extends Component {
         <div className="media-object" style={divStyle}>
 
           <div className="media-object-section small-4">
-            <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/7.6.1/img/profileicon/" + player.participantId.profileIcon + ".png"} />
-            <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/7.11.1/img/spell/" + player.spell1Id + ".png"} />
-            <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/7.11.1/img/spell/" + player.spell2Id + ".png"} />
+            <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/profileicon/" + player.participantId.profileIcon + ".png"} />
+            <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + player.spell1Id + ".png"} />
+            <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + player.spell2Id + ".png"} />
             <h5>{player.participantId.summonerName}</h5>
             <p>{player.stats.kills}/{player.stats.deaths}/{player.stats.assists}</p>
             <p>Level {player.stats.champLevel}</p>
@@ -48,13 +48,13 @@ class MatchInfo extends Component {
 
           <div className="media-object-section small-5">
             <ul className="item-list">
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item0}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item1}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item2}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item3}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item4}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item5}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item6}.png`} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item0 + ".png"} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item1 + ".png"} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item2 + ".png"} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item3 + ".png"} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item4 + ".png"} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item5 + ".png"} /></li>
+              <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item6 + ".png"} /></li>
             </ul><br/>
             <p>Towers destroyed: {player.stats.towerKills}</p>
             <p>Best multikill: {player.stats.largestMultiKill}</p>
@@ -70,7 +70,7 @@ class MatchInfo extends Component {
       </li>;
     })
 
-    let losers = this.props.data.losers.map(function(player){
+    let losers = this.props.data.losers.map((player) => {
 
 
       //Replaces items that are 0 with the number for the empty item slot.
@@ -89,9 +89,9 @@ class MatchInfo extends Component {
         <div className="media-object" style={divStyle}>
 
           <div className="media-object-section small-4">
-            <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/7.6.1/img/profileicon/" + player.participantId.profileIcon + ".png"} />
-            <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/7.11.1/img/spell/" + player.spell1Id + ".png"} />
-            <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/7.11.1/img/spell/" + player.spell2Id + ".png"} />
+          <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/profileicon/" + player.participantId.profileIcon + ".png"} />
+          <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + player.spell1Id + ".png"} />
+          <img className="summonerSpell" height="30" width="30" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + player.spell2Id + ".png"} />
             <h5>{player.participantId.summonerName}</h5>
             <p>{player.stats.kills}/{player.stats.deaths}/{player.stats.assists}</p>
             <p>Level {player.stats.champLevel}</p>
@@ -100,13 +100,13 @@ class MatchInfo extends Component {
 
           <div className="media-object-section small-5">
             <ul className="item-list">
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item0}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item1}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item2}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item3}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item4}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item5}.png`} /></li>
-              <li><img height="25" width="25" src={`http://ddragon.leagueoflegends.com/cdn/7.6.1/img/item/${player.stats.item6}.png`} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item0 + ".png"} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item1 + ".png"} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item2 + ".png"} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item3 + ".png"} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item4 + ".png"} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item5 + ".png"} /></li>
+            <li><img height="25" width="25" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/item/" + player.stats.item6 + ".png"} /></li>
             </ul><br/>
             <p>Towers destroyed: {player.stats.towerKills}</p>
             <p>Best multikill: {player.stats.largestMultiKill}</p>

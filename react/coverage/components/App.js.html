@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/App.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">components/</a> App.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.98% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>49/86</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.61% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>31/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.18% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20.93% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/43</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">7 statements, 9 functions, 16 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* jshint esversion:6 */
+import React, { Component } from 'react';
+import ChampionCollection from './ChampionCollection';
+import ChampionInfo from './ChampionInfo';
+import MatchCollection from './MatchCollection';
+import MatchInfo from './MatchInfo';
+import { StickyContainer, Sticky } from 'react-sticky';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+&nbsp;
+class App extends React.Component {
+<span class="fstat-no" title="function not covered" >  constructor(props) <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >{</span></span></span></span>
+    super(props);
+<span class="cstat-no" title="statement not covered" >    t</span>his.state = {
+      champions: [],
+      selectedChampionInfo: null,
+      username: null,
+      userMatches: [],
+      selectedMatchInfo: null,
+      userMastery: []
+    };
+<span class="cstat-no" title="statement not covered" >    t</span>his.handleChampionSelect = this.handleChampionSelect.bind(this);
+<span class="cstat-no" title="statement not covered" >    t</span>his.handleMatchSelect = this.handleMatchSelect.bind(this);
+<span class="cstat-no" title="statement not covered" >    t</span>his.handleSubmit = this.handleSubmit.bind(this);
+<span class="cstat-no" title="statement not covered" >    t</span>his.handleChange = this.handleChange.bind(this);
+  }
+&nbsp;
+    //Upon pageload gets list of champions and current username
+    componentWillMount() <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >      $</span>.get("/champions/").done(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            t</span>his.setState({
+              champions: data
+            });
+        });
+<span class="cstat-no" title="statement not covered" >      $</span>.get("/current_user").done(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            t</span>his.setState({
+              username: data.username
+            });
+        });
+      }
+&nbsp;
+  //Alters state for every character entered into the React form
+  handleChange(event) {
+<span class="cstat-no" title="statement not covered" >    t</span>his.setState({username: event.target.value});
+  }
+&nbsp;
+  //Uses the altered state to trigger a call to the LeagueHQ API with the entered name
+  handleSubmit(event) <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (this.state.username !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    $</span>.get(`/match_list/${this.state.username}`).done(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      t</span>his.setState({
+        userMatches: data
+      });
+    });
+    }
+<span class="cstat-no" title="statement not covered" >    e</span>vent.preventDefault();
+  }
+&nbsp;
+  //Uses a match's Riot-given ID to make a request to the LeagueHQ API
+  //Sets the selectedMatchInfo state with the data returned and removes the selectedChampionInfo state to prevent overlap
+  handleMatchSelect(id, key) <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    b</span>ackgroundChanger(key);
+<span class="cstat-no" title="statement not covered" >    $</span>.get(`/matches/${id}`).done(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          t</span>his.setState({
+            selectedChampionInfo: null,
+            selectedMatchInfo: data
+          });
+        });
+  }
+&nbsp;
+  //Uses a champion's Riot-given ID to make a request to the LeagueHQ API
+  //Sets the selectedChampionInfo state with the data returned and removes the selectedMatchInfo state to prevent overlap
+  handleChampionSelect(id, key) <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    b</span>ackgroundChanger(key);
+<span class="cstat-no" title="statement not covered" >    $</span>.get(`/champions/${id}/info`).done(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          t</span>his.setState({
+            selectedMatchinfo: null,
+            selectedChampionInfo: data
+          });
+        });
+    }
+&nbsp;
+  masterySelect() <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (this.state.username !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    $</span>.get(`/mastery_list/${this.state.username}`).done(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      t</span>his.setState({
+        userMastery: data
+      });
+    });
+  }
+}
+&nbsp;
+  render() {
+<span class="cstat-no" title="statement not covered" >    l</span>et showInfo;
+<span class="cstat-no" title="statement not covered" >    if (this.state.selectedChampionInfo !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      s</span>howInfo =
+      &lt;ChampionInfo
+        id = {this.state.selectedChampionInfo.champion.id}
+        name = {this.state.selectedChampionInfo.champion.name}
+        keyy = {this.state.selectedChampionInfo.champion.key}
+        title = {this.state.selectedChampionInfo.champion.title}
+        lore = {this.state.selectedChampionInfo.champion.lore}
+        attack = {this.state.selectedChampionInfo.champion.attack}
+        defense = {this.state.selectedChampionInfo.champion.defense}
+        magic = {this.state.selectedChampionInfo.champion.magic}
+        skins = {this.state.selectedChampionInfo.skins}
+        topics = {this.state.selectedChampionInfo.topics}
+        abilities = {this.state.selectedChampionInfo.abilities}
+        img = {this.state.selectedChampionInfo.image}
+        /&gt;
+    } else <span class="cstat-no" title="statement not covered" >if (this.state.selectedMatchInfo !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      s</span>howInfo =
+      &lt;MatchInfo
+      data = {this.state.selectedMatchInfo}
+      addDefaultSrc = {this.addDefaultSrc}
+      /&gt;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    r</span>eturn (
+      &lt;StickyContainer&gt;
+        &lt;div className = "App row"&gt;
+&nbsp;
+          &lt;div className = "columns show-for-small-only small-12"&gt;
+              {showInfo}
+          &lt;/div&gt;
+&nbsp;
+          &lt;div className = "column small-12 medium-6"&gt;
+            &lt;Tabs&gt;
+&nbsp;
+              &lt;TabList&gt;
+               &lt;Tab className="tab"&gt;Champions&lt;/Tab&gt;
+               &lt;Tab className="tab" onClick={this.handleSubmit}&gt;Recent Games&lt;/Tab&gt;
+              &lt;/TabList&gt;
+&nbsp;
+              &lt;TabPanel&gt;
+                &lt;ChampionCollection
+                  champions= {this.state.champions}
+                  selectedChampionId = {this.state.selectedChampionId}
+                  handleChampionSelect= {this.handleChampionSelect}
+                /&gt;
+              &lt;/TabPanel&gt;
+&nbsp;
+              &lt;TabPanel&gt;
+                &lt;MatchCollection
+                  userMatches = {this.state.userMatches}
+                  username = {this.state.username}
+                  handleMatchSelect = {this.handleMatchSelect}
+                  selectedMatchInfo = {this.selectedMatchInfo}
+                  handleChange = {this.handleChange}
+                  handleSubmit = {this.handleSubmit}
+                  /&gt;
+              &lt;/TabPanel&gt;
+&nbsp;
+            &lt;/Tabs&gt;
+          &lt;/div&gt;
+          &lt;div className = "columns hide-for-small-only medium-6"&gt;
+            &lt;Sticky topOffset={0}&gt;
+                {showInfo}
+            &lt;/Sticky&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/StickyContainer&gt;
+    );
+  }
+}
+&nbsp;
+&nbsp;
+export default App;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 10 2017 23:34:48 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

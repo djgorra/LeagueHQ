@@ -11,7 +11,7 @@
 
   <h1>
     <% unless @user.icon_id.nil? %>
-      <img class="champ-thumb" src="http://ddragon.leagueoflegends.com/cdn/7.2.1/img/profileicon/<%=@user.icon_id%>.png">
+      <img class="champ-thumb" src="http://ddragon.leagueoflegends.com/cdn/<%=@version%>/img/profileicon/<%=@user.icon_id%>.png">
     <% end %>
     <%= @user.email %>
   </h1>

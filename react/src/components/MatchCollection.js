@@ -31,6 +31,7 @@ class MatchCollection extends Component {
         };
       return(
         <Match
+          version = {this.props.version}
           id = {match.matchId}
           champion = {match.champion.name}
           championKey = {match.champion.key}

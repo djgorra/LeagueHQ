@@ -222,6 +222,22 @@ body {
   background-color: rgba(10, 10, 10, 0.5);
 }
 
+@-webkit-keyframes redWhite {
+  from { color: red }
+  to { color: white }
+}
+
+#error_explanation h2 {
+  font-size: 20px;
+}
+#error_explanation {
+  color: red
+  animation-name: redWhite;
+  animation-duration: 2s;
+  -webkit-animation-name: redWhite;
+  -webkit-animation-duration: 2s;
+}
+
 .form-buttons {
   display: inline-block;
 }
@@ -327,7 +343,7 @@ input[type="submit"] {
   border-style: solid;
   background-color: black;
   opacity: 0.8;
-  text-indent: 10px;
+  padding-left: : 10px;
   margin-bottom: 40px;
   padding: 5px;
   box-shadow: 0px 0px 25px 6px rgba(0,0,0,0.4);

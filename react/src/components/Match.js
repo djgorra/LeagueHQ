@@ -16,7 +16,7 @@ class Match extends Component{
 
           <div className="media-object-section">
             <div className="thumbnail">
-              <img height="75" width="75" src={"http://ddragon.leagueoflegends.com/cdn/7.5.1/img/champion/" + this.props.championKey + ".png"} />
+              <img height="75" width="75" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/champion/" + this.props.championKey + ".png"} />
             </div>
           </div>
 

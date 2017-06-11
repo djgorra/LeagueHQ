@@ -11,7 +11,7 @@ class ChampionCollection extends Component {
   }
 
     updateSearch(event) {
-      this.setState({search: event.target.value})
+      this.setState({search: event.target.value.toLowerCase()})
     }
 
     render() {
@@ -28,9 +28,10 @@ class ChampionCollection extends Component {
         };
         return(
           <Champion
+            version = {this.props.version}
             id = {champion.id}
             name = {champion.name}
-            key = {champion.key}
+            key = {champion.id}
             img = {champion.img}
 
             className = {champion.name}

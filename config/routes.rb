@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :matches, only: [:show]
   resources :match_list, only: [:show]
+  resources :version, only: [:index]
 end

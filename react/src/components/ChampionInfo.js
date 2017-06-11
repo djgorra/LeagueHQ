@@ -14,17 +14,17 @@ class ChampionInfo extends Component {
     let loader = <img src={"http://i.imgur.com/QwCBl6I.gif"}/>
     let lore = this.props.lore
     let keyy = this.props.keyy;
-    let skins = this.props.skins.map(function(skin){
+    let skins = this.props.skins.map((skin) => {
       return <li className="skinContainer" key={skin.num}><h2 className="skinName">{skin.name}</h2>
       <Img className="skinImage" src={"http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + keyy + "_" + skin.num + ".jpg"} loader={loader}/></li>;
     })
 
-    let abilities = this.props.abilities.map(function(ability){
-      return <li key={ability.id}><Img src={"http://ddragon.leagueoflegends.com/cdn/7.2.1/img/spell/" + ability.image} loader={loader}/>{ability.name}<br/><small>{ability.description}</small></li>;
+    let abilities = this.props.abilities.map((ability) => {
+      return <li key={ability.id}><Img src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + ability.image} loader={loader}/>  {ability.name}<br/><small>{ability.description}</small></li>;
 
     })
 
-    let topics = this.props.topics.map(function(topic){
+    let topics = this.props.topics.map((topic) => {
       if(topic.user.riot_username == ""){
         return <li key={topic.id} className="indexTopic"><a href={"/champions/" + topic.champion_id + "/topics/" + topic.id}>{topic.title}</a>
         <br/>Submitted on {topic.created_at}

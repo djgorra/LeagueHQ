@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426203306) do
+ActiveRecord::Schema.define(version: 20170611034659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,55 @@ ActiveRecord::Schema.define(version: 20170426203306) do
     t.integer "defense"
     t.integer "magic"
     t.integer "difficulty"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string  "match_id",    null: false
+    t.integer "champion_id", null: false
+    t.string  "champion"
+    t.string  "gamemode",    null: false
+    t.string  "lane",        null: false
+    t.string  "season",      null: false
+    t.string  "date"
+    t.string  "duration"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_matches_on_user_id", using: :btree
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string  "name",              null: false
+    t.integer "riot_id",           null: false
+    t.string  "icon_id",           null: false
+    t.integer "champion_id",       null: false
+    t.string  "champion"
+    t.string  "lane",              null: false
+    t.integer "team",              null: false
+    t.boolean "won",               null: false
+    t.integer "kills",             null: false
+    t.integer "deaths",            null: false
+    t.integer "assists",           null: false
+    t.integer "tower_kills",       null: false
+    t.integer "level",             null: false
+    t.boolean "first_blood",       null: false
+    t.boolean "first_tower",       null: false
+    t.integer "gold_earned",       null: false
+    t.integer "damage_dealt",      null: false
+    t.integer "damage_taken",      null: false
+    t.integer "healing_done",      null: false
+    t.integer "minions_killed",    null: false
+    t.integer "largest_multikill", null: false
+    t.integer "wards_placed",      null: false
+    t.string  "item_0"
+    t.string  "item_1"
+    t.string  "item_2"
+    t.string  "item_3"
+    t.string  "item_4"
+    t.string  "item_5"
+    t.string  "item_6"
+    t.integer "match_id",          null: false
+    t.integer "user_id"
+    t.index ["match_id"], name: "index_players_on_match_id", using: :btree
+    t.index ["user_id"], name: "index_players_on_user_id", using: :btree
   end
 
   create_table "replies", force: :cascade do |t|
@@ -84,6 +133,12 @@ ActiveRecord::Schema.define(version: 20170426203306) do
     t.boolean  "is_admin",               default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
