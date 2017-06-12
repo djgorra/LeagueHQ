@@ -1,4 +1,4 @@
-User.create!(email: ENV["admin_email"], password: ENV["admin_password"], riot_username: "", is_admin: true)
+User.create!(email: "test@test.com", password: "test123", riot_username: "", is_admin: true)
 
 version_url = "https://global.api.riotgames.com/api/lol/static-data/NA/v1.2/versions?api_key=#{ENV["api-key"]}"
 version_response = HTTParty.get(version_url)
@@ -39,7 +39,7 @@ response["data"].sort.each do |champ|
 
    Topic.create!(title: "Welcome to LeagueHQ!",
     content: "This is a space for discussion regarding #{champ[1]["name"]}, #{champ[1]["title"]}. Please be respectful.",
-    user_id: User.find_by(email: ENV["admin_email"]).id,
+    user_id: User.find_by(email: "test@test.com").id,
     champion_id: Champion.find_by(riot_id: champ[1]["id"]).id)
 
 end
