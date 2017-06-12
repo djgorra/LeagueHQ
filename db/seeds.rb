@@ -39,6 +39,7 @@ response["data"].sort.each do |champ|
 
    Topic.create!(title: "Welcome to LeagueHQ!",
     content: "This is a space for discussion regarding #{champ[1]["name"]}, #{champ[1]["title"]}. Please be respectful.",
+    user_id: User.find_by(email: ENV["admin_email"]).id,
     champion_id: Champion.find_by(riot_id: champ[1]["id"]).id)
 
 end
