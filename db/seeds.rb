@@ -30,14 +30,14 @@ response["data"].sort.each do |champ|
    end
 
    champ[1]["skins"].each do |skin|
-     unless skin["name"] == "default"
-       Skin.create!(name: skin["name"],
-       num: skin["num"],
-       champion_id: Champion.find_by(riot_id: champ[1]["id"]).id)
+    unless skin["name"] == "default"
+     Skin.create!(name: skin["name"],
+     num: skin["num"],
+     champion_id: Champion.find_by(riot_id: champ[1]["id"]).id)
     end
    end
 
-   Topic.create(title: "Welcome to LeagueHQ!",
+   Topic.create!(title: "Welcome to LeagueHQ!",
     content: "This is a space for discussion regarding #{champ[1]["name"]}, #{champ[1]["title"]}. Please be respectful.",
     user_id: 1,
     champion_id: Champion.find_by(riot_id: champ[1]["id"]).id)
