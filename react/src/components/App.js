@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       champions: [],
       selectedChampionInfo: null,
-      username: null,
+      username: undefined,
       userMatches: [],
       selectedMatchInfo: null,
       userMastery: [],
@@ -27,18 +27,18 @@ class App extends React.Component {
 
     //Upon pageload gets list of champions and current username
     componentWillMount() {
-      $.get("/champions/").done(data => {
-            this.setState({
-              champions: data.champions,
-              version: data.version
-            });
-        });
-      $.get("/current_user").done(data => {
+      $.get("/home_info/").done(data => {
+          this.setState({
+            champions: data.champions,
+            version: data.version,
+          });
+          if(data.username !== null){
             this.setState({
               username: data.username
             });
-        });
-      }
+          }
+      });
+    }
 
   //Alters state for every character entered into the React form
   handleChange(event) {
