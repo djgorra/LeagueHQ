@@ -7,7 +7,7 @@ class MatchListController < ApplicationController
     if response1["status"]
       render json: response1["status"]
     else
-
+      
       #Takes recieved ID and uses it to retrieve match list
       url2 = "https://na.api.riotgames.com/api/lol/NA/v2.2/matchlist/by-summoner/#{response1["id"]}?endIndex=30&beginIndex=0&api_key=#{ENV["api-key"]}"
       response2 = HTTParty.get(url2)
@@ -20,8 +20,8 @@ class MatchListController < ApplicationController
         match["queue"] = match["queue"].titleize.chomp(" 5x5").chomp("sr")
         match["season"] = match["season"].titleize
         match["lane"] = match["lane"].humanize
-      end #17
+      end
       render json: response2["matches"]
-    end #8
-  end #2
-end #1
+    end
+  end
+end
