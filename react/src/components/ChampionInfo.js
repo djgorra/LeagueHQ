@@ -20,7 +20,7 @@ class ChampionInfo extends Component {
     })
 
     let abilities = this.props.abilities.map((ability) => {
-      return <li key={ability.id}><Img src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + ability.image} loader={loader}/>  {ability.name}<br/><small>{ability.description}</small></li>;
+      return <li className="row" key={ability.id}><Img className="small-2 column" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/spell/" + ability.image} loader={loader}/>  <p className="small-10 column">{ability.name}<br/>{ability.description}</p></li>;
 
     })
 
