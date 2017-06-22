@@ -10,9 +10,11 @@ class Champion extends Component{
 
   render() {
     return(
-      <li className= "icon-container" onClick={this.props.handleChampionSelect}>
-        <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/champion/" + this.props.img} />
-        &nbsp;{this.props.className}
+      <li className= "icon-wrapper" onClick={this.props.handleChampionSelect}>
+        <div className="icon-inner">
+          <img height="50" width="50" src={"http://ddragon.leagueoflegends.com/cdn/" + this.props.version + "/img/champion/" + this.props.img} />
+          &nbsp;{this.props.className}
+        </div>
       </li>
     )
   }
